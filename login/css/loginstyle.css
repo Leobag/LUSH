@@ -1,4 +1,15 @@
-.logo-left{
+#header{
+  position:fixed;
+  background-color: rgba(108, 108, 106, 0.5);
+  margin: 0 auto;
+  z-index: 999;
+}
+
+#header .logo-name{
+  display: none;
+}
+
+#header .logo-left{
   position:absolute;
   width:60px;
   height: 60px;
@@ -8,7 +19,7 @@
   padding: 0;
 }
 
-.logo-right{
+#header .logo-right{
   position:absolute;
   width:60px;
   height: 60px;
@@ -18,27 +29,23 @@
   padding: 0;
 }
 
-#header{
-  position:fixed;
-  background-color: rgba(108, 108, 106, 0.5);
-  margin: 0 auto;
-  z-index: 999;
-}
-
-.nav{
+#header .nav{
   position: relative;
   padding-top: 20px;
 }
 
+#header .dropdown{
+  display:none;
+}
 
-ul li{
+#header ul li{
   display: inline;
   align-items: center;
   padding-right: 10px;
   padding-top: 20px;
 }
 
-ul li a{
+#header ul li a{
   font-family: "Raleway", sans-serif;
   font-size: 18px;
   text-transform: uppercase;
@@ -57,13 +64,15 @@ ul li a{
   background-size: cover;
   margin: 0 auto;
 }
-label{
+
+.form label{
   text-transform: uppercase;
   font-family: Nanum Gothic, monospace;
   font-size: 15px;
   color: white;
   font-weight: bolder;
 }
+
 #footer{
   background-color: grey;
   font-family: "Raleway", monospace;
@@ -72,33 +81,37 @@ label{
   text-transform: uppercase;
   margin: 0 auto;
 }
-.fab {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
+
+#footer ul li{
+  display: inline;
+  padding-right: 10px;
 }
 
-#footer p,a{
+#footer p{
+  margin-bottom: 0px;
+}
+
+#footer a{
   margin-bottom: 0px;
   font-family: "Raleway", monospace;
-  color: white;
-  font-size: 18px;
+  color: black;
+  font-size: 20px;
   text-transform: uppercase;
   margin: 0 auto;
 }
+
+
 .footer-social ul{
   padding:0px;
   margin:0 auto;
 }
-
 
 .footer-legal ul{
   padding:0px;
   margin:0 auto;
 }
 
+
 .fab {
   padding: 20px;
   font-size: 30px;
@@ -106,9 +119,11 @@ label{
   text-align: center;
   text-decoration: none;
 }
+
 .fab:hover {
   opacity: 0.7;
 }
+
 .fa-facebook {
   color: white;
 }
@@ -118,15 +133,73 @@ label{
 .fa-instagram {
   color: white;
 }
+
 .fa-cc-visa {
   color: white;
 }
+
 .fa-cc-mastercard {
   color: white;
 }
+
 .fa-cc-amex {
   color: white;
 }
 .fa-cc-paypal {
   color: white;
+}
+
+@media screen and (max-width: 600px){
+
+.nav{
+    display: none;
+}
+.logo-left, .logo-right{
+    display: none;
+}
+
+#header{
+  display: flex;
+  justify-content: space-between;
+}
+
+#header .dropdown{
+  display: contents;
+}
+
+#header .logo-name{
+  display: inline;
+  width:100px;
+  height: 40px;
+  opacity:1;
+  right: 30px;
+  top: 0px;
+  padding: 0;
+  margin: 20px;
+}
+
+.dropdown button{
+  font-family: Raleway, sans-serif;
+  text-transform: uppercase;
+  border: 2px solid white;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.dropdown-menu{
+  background-color: grey;
+}
+.dropdown-item{
+  font-family: Raleway, sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: white;
+}
+
+.icons .imagen{
+  max-height: 120px;
+  max-width: 120px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
 }

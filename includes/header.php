@@ -4,15 +4,15 @@
   <div class="nav row">
     <div class="col-sm-12 text-center col-lg-8 text-center">
       <ul>
-        <li><a href="">Nosotros/FAQ</a></li>
-        <li><a href="">Destinos</a></li>
-        <li><a href="">Registro</a></li>
+        <li><a href="../preguntasfrecuentes/PreguntasFrecuentes.html">Nosotros/FAQ</a></li>
+        <li><a href="../trips/trips.php">Destinos</a></li>
+        <li><a href="../register/register.php">Registro</a></li>
       </ul>
     </div>
     <div class="col-sm-12 text-center col-lg-4 text-right">
       <ul>
-        <li><a href="">Log in</a></li>
-        <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="../login/login.html">Log in</a></li>
+        <li><a href="../carrito/carrito.html"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
     </div>
   </div>
@@ -21,11 +21,11 @@
       Menu
     </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Nosotros/FAQ</a>
-        <a class="dropdown-item" href="#">Destinos</a>
-        <a class="dropdown-item" href="#">Registro</a>
-        <a class="dropdown-item" href="#">Log in</a>
-        <a class="dropdown-item" href="#">Mi carrito</a>
+        <a class="dropdown-item" href="../preguntasfrecuentes/PreguntasFrecuentes.html">Nosotros/FAQ</a>
+        <a class="dropdown-item" href="../trips/trips.php">Destinos</a>
+        <a class="dropdown-item" href="../register/register.php">Registro</a>
+        <a class="dropdown-item" href="../login/login.html">Log in</a>
+        <a class="dropdown-item" href="../carrito/carrito.html">Mi carrito</a>
       </div>
     </div>
     <img class="logo-name" src="../img/nombre-blanco.png" alt="">
