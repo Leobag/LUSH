@@ -1,0 +1,15 @@
+html{
+  font-family: 'Raleway', 'Nanum Gothic', monospace;
+}
+#allfather{
+  padding: 0;
+
+}
+
+.backgroundphoto{
+  background-image: url("../img/mal.jpg");
+  min-height: 600px;
+  width: 100%;
+  background-size: cover;
+  margin: 0 auto;
+}

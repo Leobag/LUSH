@@ -1,0 +1,132 @@
+.logo-left{
+  position:absolute;
+  width:60px;
+  height: 60px;
+  opacity:1;
+  left: 30px;
+  top: 0px;
+  padding: 0;
+}
+
+.logo-right{
+  position:absolute;
+  width:60px;
+  height: 60px;
+  opacity:1;
+  right: 30px;
+  top: 0px;
+  padding: 0;
+}
+
+#header{
+  position:fixed;
+  background-color: rgba(108, 108, 106, 0.5);
+  margin: 0 auto;
+  z-index: 999;
+}
+
+.nav{
+  position: relative;
+  padding-top: 20px;
+}
+
+
+ul li{
+  display: inline;
+  align-items: center;
+  padding-right: 10px;
+  padding-top: 20px;
+}
+
+ul li a{
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.fas{
+  color: white;
+}
+
+.foto{
+  background-image: url("../img/plane2.jpg");
+  padding: 0px;
+  min-height: 600px;
+  width:100%;
+  background-size: cover;
+  margin: 0 auto;
+}
+label{
+  text-transform: uppercase;
+  font-family: Nanum Gothic, monospace;
+  font-size: 15px;
+  color: white;
+  font-weight: bolder;
+}
+#footer{
+  background-color: grey;
+  font-family: "Raleway", monospace;
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+.fab {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#footer p,a{
+  margin-bottom: 0px;
+  font-family: "Raleway", monospace;
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+.footer-social ul{
+  padding:0px;
+  margin:0 auto;
+}
+
+
+.footer-legal ul{
+  padding:0px;
+  margin:0 auto;
+}
+
+.fab {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+.fab:hover {
+  opacity: 0.7;
+}
+.fa-facebook {
+  color: white;
+}
+.fa-twitter-square {
+  color: white;
+}
+.fa-instagram {
+  color: white;
+}
+.fa-cc-visa {
+  color: white;
+}
+.fa-cc-mastercard {
+  color: white;
+}
+.fa-cc-amex {
+  color: white;
+}
+.fa-cc-paypal {
+  color: white;
+}

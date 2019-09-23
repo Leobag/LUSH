@@ -1,0 +1,100 @@
+.body {
+  background-color: rgb(244, 244, 244);
+  position: relative;
+}
+
+.logo {
+  position: relative;
+  bottom: 300px;
+left: 850px;
+}
+h1 {
+position: relative;
+bottom: 190px;
+left: 280px;
+font-family: 'Raleway', sans-serif;
+font-size: 36px;
+z-index: 1;
+margin: 0 auto;
+}
+
+.menu li {
+  position: relative;
+  display: inline-block;
+  bottom: 110px;
+  right: 35px;
+  padding: 10px;
+  font-size: 24px;
+}
+
+
+
+h3 {
+  position: relative;
+  top: 25px;
+  left: 35px;
+  font-size: 16px;
+  z-index: 1;
+  margin: 0 auto;
+}
+.falsoheader {
+  background-color: #fff;
+  padding: 0;
+  height: 200px;
+  width: 1700px;
+  position: relative;
+  bottom: 150px;
+  margin: 0;
+  z-index: 0;
+  margin: 0 auto;
+}
+
+.icono {
+  position: relative;
+  bottom: 70px;
+  left: 55px;
+  z-index: 1;
+}
+
+.circulofondo {
+  position: relative;
+  bottom: 65px;
+  right: 150px;
+  z-index: 0;
+}
+
+.separador {
+  background-color: rgb(205, 205, 205);
+  position: relative;
+  bottom: 180px;
+  left: 130px;
+  width: 1400px;
+  height: 1px;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.informacion {
+  background-color: #fff;
+  height: 450px;
+  width: 1700px;
+  position: relative;
+  bottom: 150px;
+  z-index: 0;
+  margin-top: 20px;
+  margin-left: 95px;
+}
+
+.tickets {
+  position: relative;
+  left: 650;
+  top: 50;
+}
+
+p {
+  position: relative;
+  top: 50px;
+  left: 600px;
+  font-family: Raleway;
+  font-size: 20px;
+}

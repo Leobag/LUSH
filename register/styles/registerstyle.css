@@ -1,0 +1,24 @@
+html{
+  font-family: 'Raleway', monospace;
+}
+
+section {
+  box-sizing: border-box;
+}
+
+
+.photobackground{
+  background-image: url("../img/star_wp.jpg");
+  width: 100%;
+  min-height: 680px;
+  margin: 0 auto;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.formcontain{
+  width:
+}
+.formAll{
+  width: ;
+}

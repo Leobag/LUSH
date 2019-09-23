@@ -1,0 +1,10 @@
+html{
+  font-family: 'Raleway', 'Nanum Gothic', monospace;
+}
+
+.backgroundphoto{
+  background-image: url("img/mal.jpg");
+  min-height: 600px;
+  width: 100%;
+  background-size: cover;
+}

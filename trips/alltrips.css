@@ -1,0 +1,90 @@
+h1, h2, h3 {
+  font-family: 'Raleway', monospace;
+}
+body{
+  font-family: 'Nanum Gothic';
+  overflow-y: scroll;
+}
+.backgroundphoto{
+  background-image: url("img/crwp.jpg");
+  background-size: cover;
+  width: 100%;
+  min-height: 686px;
+
+}
+.photodad{
+  width: auto;
+  position: relative;
+
+}
+#centertext{
+position: absolute;
+text-align: center;
+padding-top: 330px;
+}
+#centertext .title{
+  text-transform: bold;
+  font-size: 45px;
+  color: white;
+}
+#centertext .undertitle{
+  text-transform: bold;
+  font-size: 20px;
+  color: white;
+}
+
+.dad{
+  min-height: 600px;
+  flex-wrap: wrap;
+}
+.contphot{
+  background-color: #F0F9FE;
+}
+.embodiment{
+  min-height: 800px;
+  display: flex;
+  justify-content: space-around;
+
+}
+.carousel{
+  height: 300px;
+}
+.carouselparent{
+  flex-wrap: wrap;
+  background-color: white;
+  opacity: 1;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  padding-top: 10px;
+  box-shadow: 3px 3px 7px grey;
+}
+
+.carousel-inner{
+  position: absolute;
+}
+.carousel-inner .carousel-item{
+}
+.innerphoto{
+width: auto;
+height: 300px;
+justify-content: center;
+}
+
+.bottomtext{
+  padding: 0;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.main-photo{
+ height: 400px;
+ object-fit: cover;
+}
+.photoheader{
+align-self: center;
+}
+.btn{
+}
+.btnlink{
+
+}
