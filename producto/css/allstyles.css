@@ -6,10 +6,48 @@ html{
 
 }
 
-.backgroundphoto{
+#allfather .backgroundphoto{
   background-image: url("../img/mal.jpg");
-  min-height: 600px;
+  min-height: 680px;
   width: 100%;
   background-size: cover;
   margin: 0 auto;
+  position: relative;
 }
+
+#centertext{
+position: absolute;
+text-align: center;
+padding-top: 280px;
+}
+#centertext .title{
+  text-transform: bold;
+  font-size: 55px;
+  color: white;
+}
+
+#bodyDiv{
+  margin-top: 30px;
+  margin-left: 40px;
+}
+#bodyDiv ul{
+  list-style-type: none;
+  padding-left: none;
+}
+#bodyDiv .mapouter{
+  margin-bottom: 30px;
+ position: relative;
+  text-align: right;
+  height: 400px;
+  width: 550px;
+}
+
+  #bodyDiv .gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:400px;
+    width:550px;
+  }
+  #bodyDiv .rightside{
+    text-align: left;
+  }
