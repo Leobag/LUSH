@@ -15,14 +15,14 @@
   <?php include("../includes/header.php"); ?>
 
    <img src="../PerfilDeUsuario/fondo3.jpg" alt="imagenfondo">
-    <img src="../PerfilDeUsuario/logoblanco.png" alt="logo" class="logo">
+    <img src="../PerfilDeUsuario/logoblanco.png" alt="logo" class="logo1">
     <section class="falsoheader">
       <img src="../PerfilDeUsuario/Profile-Icon.png" alt="Foto" width="200" class="icono">
        <img src="../PerfilDeUsuario/circuloperfil.png" alt="circulo" class="circulofondo" width="200">
        <h1>Nombre y Apellido</h1>
         <div class="separador"></div>
         <nav>
-          <ul class= "menu">
+          <ul class= "menu bodymargin">
             <li class="nav"><a style="text-decoration:none" href="../PerfilDeUsuario/Perfil.html">Informacion</a></li>
             <li><a style="text-decoration:none" href="../PerfilDeUsuario/Reservas.html">Reservas</a></li>
             <li><a style="text-decoration:none"href="PreguntasFrecuentes.html">Preguntas Frecuenes (FAQs)</a></li>
@@ -31,7 +31,7 @@
 </section>
 
 <container class="preguntas">
-<div class="card" style="width: 1700px;">
+<div class="card bodymargin" style="width: 1700px;">
   <div class="card-body">
    <h5 class="card-title">¿Cuales son las formas de Pago?</h5>
     <p class="card-text">Las compras podrán abonarse con tarjeta de crédito, depósito bancario o transferencia electrónica a través de la web o bien en cualquiera de nuestras sucursales. Luego de elegir el paquete<br>
@@ -40,7 +40,7 @@
   </div>
 </div>
 
-<div class="card" style="width: 1700px;">
+<div class="card bodymargin" style="width: 1700px;">
   <div class="card-body">
     <h5 class="card-title">¿Como puedo cancelar mi reserva?</h5>
     <p class="card-text">La cancelación de las reservas realizadas podrán hacerse por medio fehaciente. Dicha cancelación queda sujeta a lo establecido en el ítem cancelaciones, dentro de las Condiciones Generales<br>
@@ -48,14 +48,14 @@
   </div>
 </div>
 
-<div class="card" style="width: 1700px;">
+<div class="card bodymargin" style="width: 1700px;">
   <div class="card-body">
     <h5 class="card-title">¿Que documentacion debo llevar para viajar al exterior?</h5>
     <p class="card-text">En la web oficial de MIGRACIONES puede conocer cuales son los documentos válidos para viajes en el exterior.</p>
   </div>
 </div>
 
-<div class="card" style="width: 1700px;">
+<div class="card bodymargin" style="width: 1700px;">
   <div class="card-body">
     <h5 class="card-title">¿En que momento recibo mi voucher?</h5>
     <p class="card-text">Los voucher estan disponibles aproximadamente una semana antes de la fecha de Salida del viaje. Pueden ser retirados personalmente en nuestras oficinas o solicitar el envio del mismo
@@ -63,14 +63,14 @@
   </div>
 </div>
 
-<div class="card" style="width: 1700px;">
+<div class="card bodymargin" style="width: 1700px;">
   <div class="card-body">
     <h5 class="card-title">¿Los menores de edad abonan la misma tarifa?</h5>
     <p class="card-text">Los menores de 2 años no abonan y no tienen servicio. Con 2 años cumplidos abonan la totalidad del tour. Se toma como referencia ela fecha de salida del viaje</p>
   </div>
 </div>
 
-<div class="card" style="width: 1700px;">
+<div class="card bodymargin" style="width: 1700px;">
   <div class="card-body">
     <h5 class="card-title">¿Se puede elegir la ubicacion del avion/bus?</h5>
     <p class="card-text">No otorgamos numeros de butacas y ubicacion predestinada. El asiento lo otorga el coordinador en el momento de subir al bus. De todas maneras tratamos de tener en cuenta los requerimientos<br>
@@ -78,7 +78,7 @@
   </div>
 </div>
 
-<div class="card" style="width: 1700px;">
+<div class="card bodymargin" style="width: 1700px;">
   <div class="card-body">
     <h5 class="card-title">¿Puede viajar una sola persona?</h5>
     <p class="card-text">Nuestros productos estan armados en base doble, es decir minimo 2 personas por habitacion. De todas maneras en muchos de nuestros destinos una persona sola puede contratar nuestro paquete<br>
@@ -86,7 +86,7 @@
   </div>
 </div>
 
-<div class="card" style="width: 1700px;">
+<div class="card bodymargin" style="width: 1700px;">
   <div class="card-body">
     <h5 class="card-title">¿Las comidas en el viaje estan incluidas?</h5>
     <p class="card-text">Las comidas en el viaje no están incluidas dentro del paquete. En el viaje se realizan paradas en paradores turisticos donde brindan el servicio de comidas ya sea para desayuno, almuerzo o cena.</p>

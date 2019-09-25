@@ -3,7 +3,7 @@
   position: relative;
 }
 
-.logo {
+.logo1 {
   position: relative;
   width: 200px;
   bottom: 300px;
@@ -85,7 +85,7 @@ h3 {
   margin-left: 95px;
 }
 
-div {
+.bodymargin {
   margin-left: 100px;
 }
 
