@@ -1,0 +1,18 @@
+
+
+.foto{
+  background-image: url("../img/plane2.jpg");
+  padding: 0px;
+  min-height: 600px;
+  width:100%;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.form label{
+  text-transform: uppercase;
+  font-family: Nanum Gothic, monospace;
+  font-size: 15px;
+  color: white;
+  font-weight: bolder;
+}

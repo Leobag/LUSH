@@ -9,8 +9,8 @@
     </div>
     <div class="footer-legal col-12 text-center col-lg-6 text-center">
       <ul>
-        <li><a href="../contacto/contacto.html">Contacto</a></li>
-        <li><a href="../preguntasfrecuentes/PreguntasFrecuentes.html">FAQ</a></li>
+        <li><a href="../contacto/contacto.php">Contacto</a></li>
+        <li><a href="../preguntasfrecuentes/PreguntasFrecuentes.php">FAQ</a></li>
         <li><a href="#">Legal</a></li>
       </ul>
       <ul>

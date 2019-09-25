@@ -2,49 +2,17 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
- <link rel="stylesheet" href="PreguntasFrecuentes.css">
- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="CSS/carritostyle.css">
-<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
+    <title>LUSH - FAQ</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
+     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
+     <link rel="stylesheet" href="../includes/general.css">
+     <link rel="stylesheet" href="css/PreguntasFrecuentes.css">
   </head>
 <body class="body">
 
-  <header id="header" class="container-fluid">
-    <img class="logo-left" src="img/logo-blanco.png" alt="">
-    <img class="logo-right" src="img/logo-blanco.png" alt="">
-    <div class="nav row">
-      <div class="col-sm-12 text-center col-lg-8 text-center">
-        <ul>
-          <li><a href="PreguntasFrecuentes.html">Nosotros/FAQ</a></li>
-          <li><a href="../trips/trips.php">Destinos</a></li>
-          <li><a href="../register/register.php">Registro</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-12 text-center col-lg-4 text-right">
-        <ul>
-          <li><a href="../login/login.html">Log in</a></li>
-          <li><a href="../carrito/carrito.html"><i class="fas fa-shopping-cart"></i></a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Menu
-      </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="PreguntasFrecuentes.html">Nosotros/FAQ</a>
-          <a class="dropdown-item" href="../trips/trips.php">Destinos</a>
-          <a class="dropdown-item" href="../register/register.php">Registro</a>
-          <a class="dropdown-item" href="../login/login.html">Log in</a>
-          <a class="dropdown-item" href="../carrito/carrito.html">Mi carrito</a>
-        </div>
-      </div>
-      <img class="logo-name" src="img/nombre-blanco.png" alt="">
-  </header>
+  <?php include("../includes/header.php"); ?>
 
    <img src="../PerfilDeUsuario/fondo3.jpg" alt="imagenfondo">
     <img src="../PerfilDeUsuario/logoblanco.png" alt="logo" class="logo">
@@ -126,29 +94,7 @@
 </div>
 </container>
 
-<footer id="footer" class="container-fluid row pt-4">
-    <div class="footer-social col-12 text-center col-lg-6 text-center">
-      <p>redes sociales</p>
-      <ul>
-        <li><a href="https://facebook.com"><i class="fab fa-facebook" alt="facebook"></i></a></li>
-        <li><a href="https://twitter.com"><i class="fab fa-twitter-square"></i></a></li>
-        <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
-      </ul>
-    </div>
-    <div class="footer-legal col-12 text-center col-lg-6 text-center">
-      <ul>
-        <li><a href="../contacto/contacto.html">Contacto</a></li>
-        <li><a href="PreguntasFrecuentes.html">FAQ</a></li>
-        <li><a href="#">Legal</a></li>
-      </ul>
-      <ul>
-        <li><i class="fab fa-cc-visa"></i></li>
-        <li><i class="fab fa-cc-mastercard"></i></li>
-        <li><i class="fab fa-cc-amex"></i></li>
-        <li><i class="fab fa-cc-paypal"></i></li>
-      </ul>
-    </div>
-  </footer>
+  <?php include("../includes/footer.php"); ?>
 
   </body>
 </html>

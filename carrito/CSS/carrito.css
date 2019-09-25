@@ -1,0 +1,95 @@
+
+#main{
+  position: relative;
+  background-image: url("../img/carrito.jpg");
+  padding: 0px;
+  height: 600px;
+  width:100%;
+  margin:0 auto;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#main h1{
+  font-family: 'Raleway', monospace;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.feature_divider {
+    border: solid 2px;
+    display: block;
+    width: 100px;
+    margin: 10px auto;
+    border-color: black;
+}
+
+.products{
+background-color: rgba(253, 253, 253,0.7);
+padding: 30px;
+}
+
+.products h2{
+  font-size: 18px;
+  font-family: Raleway,monospace;
+  text-transform: uppercase;
+}
+
+.products .detalle img{
+width:150px;
+height: 150px;
+}
+
+.products .detalle ul li{
+  list-style: none;
+}
+
+.detalle{
+  display: flex;
+}
+
+.product-name{
+  font-family: 'Nanum Gothic', monospace;
+  text-transform: capitalize;
+  color: #08DDF7;
+  font-size: 15px;
+}
+
+.description{
+  font-family: Nanum Gothic, monospace;
+  text-transform: capitalize;
+  color: black;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.total{
+  background-color: rgba(253, 253, 253,0.7);
+  padding: 30px;
+}
+
+.total h2{
+  font-size: 18px;
+  font-family: Raleway,monospace;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.total p{
+  font-size: 18px;
+  font-family: Raleway,monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: red;
+}
+
+.total button{
+  background-color: #D4AF37;
+  font-family: Nanum Gothic, monospace;
+  font-size: 15px;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+
+}

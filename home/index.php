@@ -1,9 +1,10 @@
-<html lang="en" dir="ltr">
+<html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/indexstyle.css">
+    <link rel="stylesheet" href="../includes/general.css">
+    <link rel="stylesheet" href="CSS/index.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <title>LUSH - Luxury Travel</title>
@@ -50,29 +51,8 @@
         </div>
       </div>
     </div>
-    <div id="footer" class="container-fluid row pt-4">
-        <div class="footer-social col-12 text-center col-lg-6 text-center">
-          <p>redes sociales</p>
-          <ul>
-            <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="https://twitter.com"><i class="fab fa-twitter-square"></i></a></li>
-            <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
-          </ul>
-        </div>
-        <div class="footer-legal col-12 text-center col-lg-6 text-center">
-          <ul>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Legal</a></li>
-          </ul>
-          <ul>
-            <li><i class="fab fa-cc-visa"></i></li>
-            <li><i class="fab fa-cc-mastercard"></i></li>
-            <li><i class="fab fa-cc-amex"></i></li>
-            <li><i class="fab fa-cc-paypal"></i></li>
-          </ul>
-        </div>
-      </div>
+
+    <?php include("../includes/footer.php"); ?>
 
 
 
