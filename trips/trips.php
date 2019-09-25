@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../includes/general.css">
-    <link rel="stylesheet" href="alltrips.css">
+    <link rel="stylesheet" href="css/trips.css">
     <title>LUSH - Ofertas</title>
   </head>
   <body>

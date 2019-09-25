@@ -6,7 +6,7 @@ body{
   overflow-y: scroll;
 }
 .backgroundphoto{
-  background-image: url("img/crwp.jpg");
+  background-image: url("../img/crwp.jpg");
   background-size: cover;
   width: 100%;
   min-height: 686px;
