@@ -1,5 +1,5 @@
 <header id="header" class="container-fluid">
-  <img class="logo-left" src="../img/logo-blanco.png" alt="logo">
+<a href="../home/index.php"><img class="logo-left" src="../img/logo-blanco.png" alt="logo"></a>
   <img class="logo-right" src="../img/logo-blanco.png" alt="logo">
   <div class="nav row">
     <div class="col-sm-12 text-center col-lg-8 text-center">
