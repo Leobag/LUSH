@@ -1,0 +1,84 @@
+html{
+  font-family: 'Raleway', 'Nanum Gothic', monospace;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#allfather{
+  padding: 0;
+
+}
+#allfather .backgroundphoto{
+  background-image: url("../img/mal.jpg");
+  min-height: 680px;
+  width: 100%;
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+}
+
+#centertext{
+position: absolute;
+text-align: center;
+padding-top: 280px;
+}
+#centertext .title{
+  text-transform: bold;
+  font-size: 55px;
+  color: white;
+}
+
+#buttons{
+justify-content: center;
+}
+
+#buttons #buttongrp .btn{
+  text-decoration-color: white;
+}
+#aboutDiv{
+  margin-top: 30px;
+  margin-left: 40px;
+  display: flex;
+}
+#aboutDiv .reverse{
+  flex-direction: row-reverse;
+}
+#aboutDiv ul{
+  list-style-type: none;
+}
+#aboutDiv .mapouter{
+  margin-bottom: 30px;
+ position: relative;
+  text-align: right;
+  width: 95%;
+}
+#gmap_canvas{
+  width: 100%;
+  object-fit: cover;
+}
+
+  #aboutDiv .mapouter .gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    width:100%;
+    padding: none;
+    margin: 0 auto;
+  }
+  #aboutDiv .paragraph{
+    text-align: justify;
+  }
+  #aboutDiv .rightside{
+    text-align: left;
+  }
+#incluidoDiv{
+  display: flex;
+}
+#incluidoDiv #collapse2 .bar2headline{
+  justify-content: start;
+  text-align: justify;
+}
+#incluidoDiv .list-style{
+list-style-type: none;
+}
+#incluidoDiv .fas{
+  color: black!important;
+}
