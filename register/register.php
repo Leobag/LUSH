@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link rel="stylesheet" href="../includes/general.css">
-    <link rel="stylesheet" href="CSS/allstyle.css">
+    <link rel="stylesheet" href="css/allstyle.css">
     <title>LUSH - Register</title>
   </head>
   <body>
@@ -18,29 +18,33 @@
             <div class="row photobackground px-0">
 
                 <div class="col-12 formcontain d-flex">
-                  <form class="formAll" action="register.php" method="post" enctype="multipart/form-data">
+                  <form class="formAll" action="register.php" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
-                          <label for="exampleInputEmail1">Nombre: </label>
-                          <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Escribir Nombre" required>
+                          <label for="nombre">Nombre: </label>
+                          <input type="text" class="form-control" name="nombre"id="name" aria-describedby="nameHelp" placeholder="Escribir Nombre" value="">
                       </div>
                       <div class="form-group">
-                          <label for="exampleInputEmail1">Apellido: </label>
-                          <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Escribir Apellido" required>
+                          <label for="apellido">Apellido: </label>
+                          <input type="text" class="form-control" name="apellido" id="name" aria-describedby="nameHelp" placeholder="Escribir Apellido" value="">
                       </div>
                       <div class="form-group">
-                          <label for="Email">Email: </label>
-                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Escribir Email" required>
+                          <label for="email">Email: </label>
+                          <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Escribir Email" value="">
                       </div>
                       <div class="form-group">
                           <label for="password">Password: </label>
-                          <input type="password" class="form-control" id="password" placeholder="Escribir Password" required>
+                          <input type="password" class="form-control" name="password" id="password" placeholder="Escribir Password" value="">
+                      </div>
+                      <div class="form-group">
+                          <label for="verificarpassword">Verificar Password: </label>
+                          <input type="password" name="verificarpassword" class="form-control" id="verificarpassword" placeholder="Repetir Password" value="">
                       </div>
                       <div class="form-group">
                           <label for="profilepic">Subir foto de perfil: </label>
-                          <input type="file" class="form-control" id="profilepic" aria-describedby="nameHelp">
+                          <input type="file" class="form-control" id="profilepic" aria-describedby="nameHelp" value="">
                       </div>
                       <div class="form-group form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1" value="">
                           <label class="form-check-label" for="check" required>He leído los términos y condiciones</label>
                       </div>
                           <small id="idHelp" class="form-text text-muted">Lush Luxury Travel no comparte informacion personal con terceros. </br></small>

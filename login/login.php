@@ -1,3 +1,4 @@
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -11,7 +12,7 @@
   </head>
   <body>
     <?php include("../includes/header.php"); ?>
-    
+
     <div class="foto container-fluid row pl-5 pt-5">
       <div class="col-8 col-md-5 col-lg-4 offset-1 pt-5">
         <form>
