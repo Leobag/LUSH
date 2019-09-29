@@ -16,7 +16,7 @@ if($destinos["maldivas"]){
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link rel="stylesheet" href="../includes/general.css">
     <link rel="stylesheet" href="css/allstyle.css">
-    <title>Viajá a las Maldivas</title>
+    <title>Viajá a Maldivas</title>
   </head>
 
   <body>
@@ -39,13 +39,15 @@ if($destinos["maldivas"]){
                   GENERAL
                 </button>
 
-                <button class="btn btn-primary col-3" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="#collapse2">
-                  SOBRE EL VIAJE
-                </button>
-                <button class="btn btn-primary col-3" type="button"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <button class="btn btn-primary col-3" type="button"  data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="#collapse2">
                   MAS FOTOS
                 </button>
-                <button class="btn btn-primary col-3" type="button"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+
+                <button class="btn btn-primary col-3" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="#collapse3">
+                  SOBRE EL VIAJE
+                </button>
+
+                <button class="btn btn-primary col-3" type="button"  data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="#collapse4">
                   RESERVAR
                 </button>
               </div>
@@ -60,7 +62,7 @@ if($destinos["maldivas"]){
               <h4>Posición:</h4>
               <div class="mapouter">
                 <div class="gmap_canvas">
-                  <iframe  height="400" width="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=Constance%20Halaveli&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                  <iframe class="rounded" height="400" width="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=Constance%20Halaveli&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                 </div>
               </div>
             </div>
@@ -97,8 +99,20 @@ if($destinos["maldivas"]){
           </div>
         </article>
 
-        <article id="incluidoDiv" class="container-fluid">
+        <article id="photoDiv" class="container-fluid mb-2">
           <div id="collapse2" class="row collapse" data-parent="#buttongrp">
+
+            <?php for($i=0; $i < count($infotrip["photos"]); $i++):
+              ?>
+            <div class="col-6 col-md-3">
+              <img class="rounded img-fluid img-thumbnail mx-auto" src="<?=$infotrip["photos"][$i]?>" alt="mal<?=$i+1?>">
+            </div>
+          <?php endfor; ?>
+          </div>
+        </article>
+
+        <article id="incluidoDiv" class="container-fluid">
+          <div id="collapse3" class="row collapse" data-parent="#buttongrp">
             <div class="col-md-1">
               <span></span>
             </div>
@@ -135,9 +149,6 @@ if($destinos["maldivas"]){
                 </ul>
               </br>
 
-
-
-
                   <h3>Si viajas por jet privado el viaje incluye: </h3>
 
                   <ul class="list-style pl-1">
@@ -155,6 +166,51 @@ if($destinos["maldivas"]){
             </div>
 
           </div>
+        </article>
+
+        <article id="reservarDiv" class="container-fluid">
+            <div id="collapse4" class="row collapse" data-parent="#buttongrp">
+              <div class="col-md-1">
+                <span></span> <!-- Margin left -->
+              </div>
+              <div class="col-6 mt-1">
+                <h2>Reservar:</h2>
+                <p><?=$infotrip["comoreservar"]?></p>
+                  </br>
+
+                  <form class="" action="maldivas.php" method="post">
+
+                      <div class="form-group">
+                        <label for="ControlSelect1">Cuantas personas son?</label>
+                        <select class="form-control" id="ControlSelect1">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="ControlSelect2">Por cuantos dias viajan?</label>
+                        <select class="form-control" id="ControlSelect2">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="ControlTextarea1">Escribí un poco de Ustedes. </br> Quisieramos saber esto para poder hacerles un viaje según sus intereses. </label>
+                        <textarea class="form-control" id="ControlTextarea1" rows="5"></textarea>
+                      </div>
+                      <input class="btn btn-primary" type="submit" value="Submit">
+                  </form>
+              </div>
+            </div>
+
         </article>
 
       </section>

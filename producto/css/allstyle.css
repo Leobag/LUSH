@@ -82,3 +82,10 @@ list-style-type: none;
 #incluidoDiv .fas{
   color: black!important;
 }
+#photoDiv img{
+  max-height: 330px!important;
+}
+
+#reservarDiv{
+  
+}

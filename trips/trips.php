@@ -35,6 +35,7 @@
 
 
         <div id="carouselhead" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
+
               <ol class="carousel-indicators">
                 <li data-target="#carouselhead" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselhead" data-slide-to="1"></li>
@@ -63,6 +64,7 @@
                   <span class="sr-only">Next</span>
               </a>
             </div>
+
             <div class="col-12 bottomtext">
 
               <h2 class="photoheader">Maldives</h2>
