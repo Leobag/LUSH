@@ -7,7 +7,7 @@
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
      <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
-     <link rel="stylesheet" href="../includes/general.css">
+     <link rel="stylesheet" href="../includes/general1.css">
      <link rel="stylesheet" href="css/PreguntasFrecuentes.css">
   </head>
 <body class="body">
