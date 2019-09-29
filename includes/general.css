@@ -10,22 +10,9 @@
 }
 
 #header .logo-left{
-  position: absolute;
-  width:60px;
-  height: 60px;
+  width:50px;
+  height: 50px;
   opacity:1;
-  left: 30px;
-  top: 0px;
-  padding: 0;
-}
-
-#header .logo-right{
-  position:absolute;
-  width:60px;
-  height: 60px;
-  opacity:1;
-  right: 30px;
-  top: 0px;
   padding: 0;
 }
 
@@ -38,6 +25,7 @@
   display:none;
 }
 
+
 #header ul li{
   display: inline;
   align-items: center;
@@ -45,11 +33,17 @@
   padding-top: 20px;
 }
 
-#header ul li a{
+#header nav ul li a{
   font-family: "Raleway", sans-serif;
-  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
   text-transform: uppercase;
-  color: white;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-rendering: optimizeLegibility;
+  text-decoration: none;
+  text-shadow: rgba(0,0,0,.01) 0 0 0.5px;
 }
 #header .fas{
   color: white;
@@ -57,10 +51,13 @@
 
 #footer{
   background-color: grey;
-  font-family: "Raleway", monospace;
-  color: black;
-  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
   text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 2px;
   margin: 0 auto;
 }
 
@@ -75,11 +72,15 @@
 
 #footer a{
   margin-bottom: 0px;
-  font-family: "Raleway", monospace;
-  color: black;
-  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
   text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 2px;
   margin: 0 auto;
+  text-decoration: none;
 }
 
 
@@ -162,8 +163,12 @@
 }
 
 .dropdown button{
-  font-family: Raleway, sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
   text-transform: uppercase;
+  color: #ffffff;
   border: 2px solid white;
   height: 40px;
   margin-top: 20px;
@@ -173,10 +178,15 @@
   background-color: grey;
 }
 .dropdown-item{
-  font-family: Raleway, sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
   text-transform: uppercase;
-  font-size: 15px;
-  color: white;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-rendering: optimizeLegibility;
+  text-shadow: rgba(0,0,0,.01) 0 0 0.5px;
 }
 
 .icons .imagen{

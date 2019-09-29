@@ -35,6 +35,7 @@
 
 
         <div id="carouselhead" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
+
               <ol class="carousel-indicators">
                 <li data-target="#carouselhead" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselhead" data-slide-to="1"></li>
@@ -43,7 +44,7 @@
               <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                      <img src="img/mal1.jpg"  class="d-block innerphoto" alt="Maldives">
+                      <a href="../producto/maldivas.php"><img src="img/mal1.jpg"  class="d-block innerphoto" alt="Maldives"></a>
                     </div>
                     <div class="carousel-item">
                       <img src="img/mal2.jpg"  class="d-block innerphoto" alt="Maldives">
@@ -63,11 +64,12 @@
                   <span class="sr-only">Next</span>
               </a>
             </div>
+
             <div class="col-12 bottomtext">
 
               <h2 class="photoheader">Maldives</h2>
                 <p class=""> Description</p>
-                <a href="#"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
+                <a href="../producto/maldivas.php"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
 
             </div>
             </div>

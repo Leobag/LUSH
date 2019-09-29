@@ -10,7 +10,7 @@ $trips = [
   1 => [
     "id" => 2,
     "destination" => "Thailand",
-    "image" => "img/thai2.jpg",
+    "image" => ["img/thai1.jpg", "img/thai2.jpg", "img/thai3.jpg"],
     "price" => 2000,
     "description" => "Lorem ipsum"
   ],
