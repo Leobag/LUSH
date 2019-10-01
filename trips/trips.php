@@ -1,5 +1,5 @@
 
-
+<?php include("includes.php"); ?>
 
 <html lang="en" dir="ltr">
   <head>
@@ -30,262 +30,61 @@
 
         <div class="row embodiment w-100">
 
-
+          <?php foreach($trips as $number => $trip): ?>
           <div class="col-12 col-md-5 carouselparent">
 
+        <div id="carouselhead<?=$number?>" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
 
-        <div id="carouselhead" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
 
               <ol class="carousel-indicators">
-                <li data-target="#carouselhead" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselhead" data-slide-to="1"></li>
-                <li data-target="#carouselhead" data-slide-to="2"></li>
+                <?php for ($i=0; $i <count($trip["image"]); $i++):
+                $active = "";
+
+                ?>
+
+                <li data-target="#carouselhead<?=$number?>" data-slide-to="<?=$i?>" class="<?php if($i<1){$active="active";}  echo $active; ?>"></li>
+
+              <?php  endfor; ?>
               </ol>
               <div class="carousel-inner">
 
-                    <div class="carousel-item active">
-                      <a href="../producto/maldivas.php"><img src="img/mal1.jpg"  class="d-block innerphoto" alt="Maldives"></a>
+                <?php for ($i=0; $i < count($trip["image"]); $i++):
+                    $active="";
+
+                      ?>
+
+                    <div class="carousel-item <?php if($i<1){$active="active";}  echo $active; ?>">
+                      <img class="img-thumbnail rounded" src="<?=$trip["image"][$i]?>"  class="d-block innerphoto" alt="Maldives<?=$i+1?>">
                     </div>
-                    <div class="carousel-item">
-                      <img src="img/mal2.jpg"  class="d-block innerphoto" alt="Maldives">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="img/mal3.jpg"  class="d-block innerphoto" alt="Maldives">
-                    </div>
+
+                  <?php  endfor; ?>
 
               </div>
 
-              <a class="carousel-control-prev" href="#carouselhead" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselhead" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-              </a>
-            </div>
-
-            <div class="col-12 bottomtext">
-
-              <h2 class="photoheader">Maldives</h2>
-                <p class=""> Description</p>
-                <a href="../producto/maldivas.php"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
-
-            </div>
-            </div>
-
-
-              <div class="row col-12 col-md-5 carouselparent">
-
-
-              <div id="carouselhead2" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
-                    <ol class="carousel-indicators">
-                      <li data-target="#carouselhead2" data-slide-to="0" class="active"></li>
-                      <li data-target="#carouselhead2" data-slide-to="1"></li>
-                      <li data-target="#carouselhead2" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-
-                          <div class="carousel-item active">
-                            <img src="img/thai1.jpg"  class="d-block innerphoto" alt="Thailand">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="img/thai2.jpg"  class="d-block innerphoto" alt="Thailand">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="img/thai3.jpg"  class="d-block innerphoto" alt="Thailand">
-                          </div>
-
-                    </div>
-
-                    <a class="carousel-control-prev" href="#carouselhead2" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselhead2" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                  </div>
-
-                  <div class="col-12 bottomtext">
-
-                    <h2 class="photoheader">Thailand</h2>
-                      <p class=""> Description</p>
-                      <a href="#"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
-
-                  </div>
+                  <a class="carousel-control-prev" href="#carouselhead<?=$number?>" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselhead<?=$number?>" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                  </a>
                 </div>
 
-                  <div class="row col-12 col-md-5 carouselparent">
+                <div class="col-12 bottomtext">
 
-                <div id="carouselhead3" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
-                      <ol class="carousel-indicators">
-                        <li data-target="#carouselhead3" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselhead3" data-slide-to="1"></li>
-                        <li data-target="#carouselhead3" data-slide-to="2"></li>
-                      </ol>
-                      <div class="carousel-inner">
+                  <h2 class="photoheader"><?=$trip["destination"]?></h2>
+                    <p class=""> <?=$trip["description"]?></p>
+                    <a href="#"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
 
-                            <div class="carousel-item active">
-                              <img src="img/cr1.jpg"  class="d-block innerphoto" alt="Costa Rica">
-                            </div>
-                            <div class="carousel-item">
-                              <img src="img/cr2.jpg"  class="d-block innerphoto" alt="Costa Rica">
-                            </div>
-                            <div class="carousel-item">
-                              <img src="img/cr3.jpg"  class="d-block innerphoto" alt="Costa Rica">
-                            </div>
-
-                      </div>
-
-                      <a class="carousel-control-prev" href="#carouselhead3" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="carousel-control-next" href="#carouselhead3" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                      </a>
-                    </div>
-
-                    <div class="col-12 bottomtext">
-
-                      <h2 class="photoheader">Costa Rica</h2>
-                        <p class=""> Description</p>
-                        <a href="#"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
-
-                    </div>
-                  </div>
-
-                    <div class="row col-12 col-md-5 carouselparent">
-
-                    <div id="carouselhead4" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
-                          <ol class="carousel-indicators">
-                            <li data-target="#carouselhead4" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselhead4" data-slide-to="1"></li>
-                            <li data-target="#carouselhead4" data-slide-to="2"></li>
-                          </ol>
-                          <div class="carousel-inner">
-
-                                <div class="carousel-item active">
-                                  <img src="img/cali1.jpg"  class="d-block innerphoto" alt="California">
-                                </div>
-                                <div class="carousel-item">
-                                  <img src="img/cali2.jpg"  class="d-block innerphoto" alt="California">
-                                </div>
-                                <div class="carousel-item">
-                                  <img src="img/cali3.jpg"  class="d-block innerphoto" alt="California">
-                                </div>
-
-                          </div>
-
-                          <a class="carousel-control-prev" href="#carouselhead4" role="button" data-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Previous</span>
-                          </a>
-                          <a class="carousel-control-next" href="#carouselhead4" role="button" data-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Next</span>
-                          </a>
-                        </div>
-
-                        <div class="col-12 bottomtext">
-
-                          <h2 class="photoheader">California</h2>
-                            <p class=""> Description</p>
-                            <a href="#"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
-
-                        </div>
-                      </div>
-
-                        <div class="row col-12 col-md-5 carouselparent">
-
-                      <div id="carouselhead5" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
-                            <ol class="carousel-indicators">
-                              <li data-target="#carouselhead5" data-slide-to="0" class="active"></li>
-                              <li data-target="#carouselhead5" data-slide-to="1"></li>
-                              <li data-target="#carouselhead5" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-
-                                  <div class="carousel-item active">
-                                    <img src="img/miami1.jpg"  class="d-block innerphoto" alt="Miami">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img src="img/miami2.jpg"  class="d-block innerphoto" alt="Miami">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img src="img/miami3.jpg"  class="d-block innerphoto" alt="Miami">
-                                  </div>
-
-                            </div>
-
-                            <a class="carousel-control-prev" href="#carouselhead5" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselhead5" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                          </div>
-
-                          <div class="col-12 bottomtext">
-
-                            <h2 class="photoheader">Miami</h2>
-                              <p class=""> Description</p>
-                              <a href="#"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
-
-                          </div>
-                        </div>
-
-                        <div class="row col-12 col-md-5 carouselparent">
-
-
-                        <div id="carouselhead6" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
-                              <ol class="carousel-indicators">
-                                <li data-target="#carouselhead6" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselhead6" data-slide-to="1"></li>
-                                <li data-target="#carouselhead6" data-slide-to="2"></li>
-                              </ol>
-                              <div class="carousel-inner">
-
-                                    <div class="carousel-item active">
-                                      <img src="img/fr1.jpg"  class="d-block innerphoto" alt="Francia">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="img/fr2.jpg"  class="d-block innerphoto" alt="Francia">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="img/fr3.jpg"  class="d-block innerphoto" alt="Francia">
-                                    </div>
-
-                              </div>
-
-                              <a class="carousel-control-prev" href="#carouselhead6" role="button" data-slide="prev">
-                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                  <span class="sr-only">Previous</span>
-                              </a>
-                              <a class="carousel-control-next" href="#carouselhead6" role="button" data-slide="next">
-                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                  <span class="sr-only">Next</span>
-                              </a>
-                            </div>
-
-                            <div class="col-12 bottomtext">
-
-                              <h2 class="photoheader">Francia</h2>
-                                <p class=""> Description</p>
-                                <a href="#"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
-
-                            </div>
-                          </div>
-
-              </div>
+                </div>
+            </div>
+          <?php endforeach; ?>
 
 
 
+
+            </div>
 
 
       </section>

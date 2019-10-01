@@ -1,38 +1,77 @@
 <?php
 
 if($_POST){
-$hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-function validarNombre(){
+
+
+
+function validarUsuario(){
+$errores = [
+"nombre" => [],
+"apellido" => [],
+"email" => [],
+"password" => []
+];
+  $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
   if(strlen($_POST["nombre"]) == 0){
-    echo "el campo de Nombre esta vacio";
-  }
-}
+    $errores["nombre"] = "El campo de Nombre esta vacio" . "</br>";
 
-function validarApellido(){
+  }
+
   if(strlen($_POST["apellido"]) == 0){
-    echo "el campo de Apellido esta vacio";
+    $errores["apellido"] = "el campo de Apellido esta vacio" . "</br>";
   }
-}
 
-function validarEmail(){
+
   if(strlen($_POST["email"]) == 0){
-    echo "el campo de email esta vacio";
+    $errores["email"] = "el campo de email esta vacio" . "</br>";
   }
-  elseif(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
-    echo "el formato de email es incorrecto";
+  if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
+    $errores["email"] = "el formato de email es incorrecto" . "</br>";
   }
-}
-function validarPassword(){
-  if(strlen($hash) == 0){
-    echo "el campo de password esta vacio";
+
+  if(strlen($_POST["password"]) == 0){
+  $errores["password"] = "el campo de password esta vacio" . "</br>";
   }
-  if(strlen($hash) < 6){
-    echo "el campo de password nesecita por lo menos 6 caracteres";
+  if(strlen($_POST["password"]) < 6 && strlen($_POST["password"]) != 0){
+  $errores["password"] = "el campo de password nesecita por lo menos 6 caracteres" . "</br>";
 }
 if(password_verify($_POST["verificarpassword"], $hash) == false){
-  echo "el campo de verificar contrasena tiene que ser igual a la contrasena";
-}}
+    $errores["password"] = "el campo de verificar contrasena tiene que ser igual a la contrasena" . "</br>";
+}
+return $errores;
+}
 
+if(count(validarUsuario()) != 0) {
+  header("Location: ../register/register.php");
+return validarUsuario();
+}
+
+else{
+
+  function crearUsuario(){
+    $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $usuario = [
+
+    "nombre" => $_POST["nombre"],
+    "apellido" => $_POST["apellido"],
+    "email" => $_POST["email"],
+    "password" => $hash,
+  ];
+  return $usuario;
+  }
+
+$usuarios = file_get_contents("usuarios.json");
+$usuariosArray = json_decode($usuarios, true);
+
+$usuariosArray[] = crearUsuario();
+
+$usuariosFinal = json_encode($usuariosArray);
+
+file_put_contents("usuarios.json", $usuariosFinal);
+
+header("Location: ../home/index.php");
+}
 
 }
 ?>
