@@ -50,6 +50,8 @@
     border-color: black;
 }
 
-.team img{
-  border-radius: 45%;
+.team .imagen{
+  max-width:200px;
+  max-height: 200px;
+  border-radius: 90px;
 }

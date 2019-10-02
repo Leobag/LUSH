@@ -5,7 +5,7 @@
     </div>
     <div class="col-6 col-md-7 text-center" style="display:inline-block">
       <ul class="mt-3">
-        <li><a href="../preguntasfrecuentes/PreguntasFrecuentes.php">Nosotros</a></li>
+        <li><a href="../about/nosotros.php">Nosotros</a></li>
         <li><a href="../preguntasfrecuentes/PreguntasFrecuentes.php">Preguntas Frecuentes</a></li>
         <li><a href="../trips/trips.php">Destinos</a></li>
         <li><a href="../register/register.php">Registro</a></li>
