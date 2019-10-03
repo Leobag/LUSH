@@ -1,5 +1,5 @@
 <?php
-include("../usuarios/validations.php");
+include("../usuarios/validationsGET.php");
 
 
  ?>
@@ -26,32 +26,65 @@ include("../usuarios/validations.php");
 
                   <form class="formAll" action="register.php" method="POST" enctype="multipart/form-data">
 
-                    <?php
-                      if($_POST){
-                        if(count(validarUsuario()) != 0){
-                        foreach(validarUsuario() as $key => $value){
-                          for ($i=0; $i < count($key); $i++) {
-                            
-                          echo $value;
-                          }
+
+                  <?php
+                    if(!isset($_GET['register'])){
+
+                    } else{
+                      $signupCheck = $_GET['register'];
+
+                      switch ($signupCheck) {
+                        case 'empty':
+                          echo "<p class='error'> No completaste todos los campos! </p>";
+                          break;
+
+                          case 'char':
+                          echo "<p class='error'> Los campos solo pueden tener caracteres romanos</p>";
+                          break;
+
+                          case 'nombre':
+                          echo "<p class='error'> No completaste el campo nombre! </p>";
+                          break;
+
+                          case 'apellido':
+                          echo "<p class='error'> No completaste el campo apellido! </p>";
+                          break;
+
+                          case 'email':
+                          echo "<p class='error'> El campo de email tiene que ser de este formato: leo@DH.com</p>";
+                            break;
+
+                          case 'verify':
+                          echo "<p class='error'> Los campos de contraseña tienen que coincidir </p>";
+                          break;
+
+                          case 'variable':
+                          echo "<p class='error'> La contraseña necesita tener por lo menos 6 caracteres </p>";
+                          break;
+
+                          case 'corto':
+                          echo "<p class='error'> La contraseña necesita tener por lo menos 6 caracteres </p>";
+                          break;
+
+                          case 'exito':
+                          echo "<p class='exito'> Te has registrado con exito!";
+                          break;
                         }
                       }
-                    }
-
-                     ?>
+                   ?>
 
 
                       <div class="form-group">
                           <label for="nombre">Nombre: </label>
-                          <input type="text" class="form-control" name="nombre"id="nombre" aria-describedby="nameHelp" placeholder="Escribir Nombre" value="">
+                          <input type="text" class="form-control" name="nombre"id="name" aria-describedby="nameHelp" placeholder="Escribir Nombre" value="<?php if(isset($_GET["nombre"])){echo $_GET["nombre"];} ?>">
                       </div>
                       <div class="form-group">
                           <label for="apellido">Apellido: </label>
-                          <input type="text" class="form-control" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Escribir Apellido" value="">
+                          <input type="text" class="form-control" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Escribir Apellido" value="<?php if(isset($_GET["apellido"]) && $_GET["apellido"]){echo $_GET["apellido"];} ?>">
                       </div>
                       <div class="form-group">
                           <label for="email">Email: </label>
-                          <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Escribir Email" value="">
+                          <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Escribir Email" value="<?php if(isset($_GET["email"])){echo $_GET["email"];} ?>">
                       </div>
                       <div class="form-group">
                           <label for="password">Password: </label>
@@ -72,7 +105,6 @@ include("../usuarios/validations.php");
                           <small id="idHelp" class="form-text text-muted">Lush Luxury Travel no comparte informacion personal con terceros. </br></small>
                           </br>
                           <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-
 
 
 
