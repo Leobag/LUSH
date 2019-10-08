@@ -1,0 +1,119 @@
+img {
+  width:100%;
+}
+
+.frase {
+  font font-family: 'Raleway', monospace;
+  font-size: 60px;
+  color: White;
+  text-align: center;
+  z-index: 1500;
+  position: relative;
+  bottom: 350px;
+}
+
+.hablemos {
+  text-align: center;
+  position: relative;
+  bottom: 100px;
+}
+
+hr {
+  border: solid 2px;
+  display: block;
+  width: 70px;
+  margin: 0 auto;
+  border-color: #D4AF37;
+  position: relative;
+  bottom: 100px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-left: 50px;
+  position: relative;
+  top: 40px;
+}
+
+h4 {
+  font-size: 20px;
+  margin-left: 50px;
+  position: relative;
+  top: 50px;
+}
+
+form {
+  position: relative;
+  bottom: 80px;
+  left: 750px;
+  display: block;
+  margin-left: 150px;
+}
+
+.nombre {
+  position: relative;
+  bottom: 30px;
+  left: 67px;
+  font-family: Raleway;
+}
+
+#email {
+  position: relative;
+  bottom: 30px;
+  left: 54px;
+  font-family: Raleway;
+}
+
+.email {
+ position: relative;
+ bottom: 35px;
+ left: 450px;
+}
+
+#mensaje {
+  position: relative;
+  bottom: 85px;
+  left: 67px;
+  font-family: Raleway;
+  margin: 0 auto;
+}
+
+.mensaje {
+  position: relative;
+  top: 25px;
+  width: 1500px;
+}
+
+#msj {
+  height: 100px;
+  width: 825px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 15px;
+}
+
+button {
+  position: relative;
+  left: 970px;
+  bottom: 50px;
+}
+
+.direccion {
+  position: relative;
+  bottom: 395px;
+  margin-left: 50px;
+  width: 320px;
+  height: 380px;
+  background-color: White;
+  text-align: center;
+  z-index: 1;
+}
+
+h5 {
+  font-size: 32px;
+}
+
+h5, p {
+  position: relative;
+  top: 50px;
+}
