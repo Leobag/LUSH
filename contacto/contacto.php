@@ -14,6 +14,8 @@
 
     <?php include("../includes/header.php"); ?>
 
+  <img src="img/avion-ventana.jpg" alt="avion">
+
    <h1>Contacto</h1>
    <p>Complete el siguiente formulario con sus datos y a la brevedad será contactado.</p>
 <h6>prueba</h6>
