@@ -38,7 +38,7 @@ padding-top: 330px;
   flex-wrap: wrap;
 }
 .contphot{
-  background-color: #F0F9FE;
+  background-color: #FFF8E4;
 }
 .embodiment{
   min-height: 800px;
@@ -49,7 +49,7 @@ padding-top: 330px;
 .carousel{
   height: 300px;
 }
-.carouselparent{
+.dad .embodiment .carouselparent{
   flex-wrap: wrap;
   background-color: white;
   opacity: 1;
@@ -57,23 +57,43 @@ padding-top: 330px;
   margin-bottom: 50px;
   padding-top: 10px;
   box-shadow: 3px 3px 7px grey;
+  border-radius: 3%;
 }
 
-.carousel-inner{
-  position: absolute;
+.carousel .carousel-inner{
+height: 85vh;
+position: relative;
 }
 .carousel-inner .carousel-item{
+  height: 45vh;
 }
-.innerphoto{
-width: auto;
-height: 300px;
-justify-content: center;
+.carousel-inner .carousel-item img{
+  height: 52vh;
+  width: 100vw;
+  object-fit: cover;
 }
 
 .bottomtext{
   padding: 0;
-  margin: 0 auto;
-  padding-top: 20px;
+  margin: 0 auto
+}
+.bottomtext a{
+  border-color: #D4AF37;
+  text-decoration: none;
+  background-color: #D4AF37;
+  color: #FFFFFF;
+  padding: 10px;
+  border:  2px;
+  box-shadow: 2px 2px 3px  #D4AF37;
+  border-radius: 10%;
+  font-weight: 500;
+
+}
+.bottomtext a:hover{
+  background-color: #B2932D;
+  transition: 0.5s;
+  box-shadow: 2px 2px 3px #B2932D;
+
 }
 
 .main-photo{

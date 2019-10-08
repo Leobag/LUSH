@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="css/trips.css">
+    <link rel="stylesheet" href="css/trip.css">
     <title>LUSH - Ofertas</title>
   </head>
   <body>
@@ -54,7 +54,7 @@
                       ?>
 
                     <div class="carousel-item <?php if($i<1){$active="active";}  echo $active; ?>">
-                      <img class="img-thumbnail rounded" src="<?=$trip["image"][$i]?>"  class="d-block innerphoto" alt="Maldives<?=$i+1?>">
+                      <img class="img-thumbnail rounded d-block innerphoto" src="<?=$trip["image"][$i]?>" alt="Maldives<?=$i+1?>">
                     </div>
 
                   <?php  endfor; ?>
@@ -71,11 +71,11 @@
                   </a>
                 </div>
 
-                <div class="col-12 bottomtext">
+                <div class="col-12 bottomtext py-3">
 
                   <h2 class="photoheader"><?=$trip["destination"]?></h2>
                     <p class=""> <?=$trip["description"]?></p>
-                    <a href="#"> <button type="button" class="w-25 btn btn-light">LINK HERE</button> </a>
+                    <a href="<?=$trip["url"]?>"> VER MÁS </a>
 
                 </div>
             </div>
