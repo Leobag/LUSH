@@ -4,7 +4,6 @@ $destinos = [
 "maldivas" => [
 
   "destino" => "Las Maldivas",
-  "preciofijo" => "3000 USD por persona",
 "bestseason" => "Clima tropical todo el año, hay dos temporadas de lluvia durante el año. La primera entre Mayo-Octubre
 y la segunda desde Noviembre hasta Abril.",
 "destinos" => 2,
@@ -34,7 +33,12 @@ Los mas populares son: irse a otra isla para probar surfear, busear cerca los ar
 
 "jetprivado" => ["Masaje", "Champagne", "Cena de 3 Pasos", "Cambio de ropa para dormir"],
 
+"photos" => ["img/malimg/malimg1.jpg", "img/malimg/malimg2.jpg", "img/malimg/malimg3.jpg", "img/malimg/malimg4.jpg"],
 
+"comoreservar" => "Viajar con nosotros es lo mas facil posible! Para reservar solo hay que pagar una taza de reserva y especificar los detalles del viaje, y nosotros ocupamos de encontrarles todo.
+ La reserva de un viaje nuestro puede costar montos distintos dependiendo de donde viaja Usted, cuales servicios adicionales seleccionó y que vuelos puedamos encontrarles. ",
+
+  "preciofijo" => "3000 USD por persona",
 ]
 
 ];
