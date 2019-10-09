@@ -1,5 +1,4 @@
 <?php
-
 include("loginValidation.php");
  ?>
 <html lang="en" dir="ltr">

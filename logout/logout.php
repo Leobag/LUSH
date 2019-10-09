@@ -1,10 +1,8 @@
 <?php
 
-if(isset($_COOKIE)){
-  unset($_COOKIE["autologin"]);
-  setcookie("autologin", null, -1, "/");
-
-}
+  if(isset($_COOKIE["autologin"])){
+    setcookie("autologin", "", -1, "/");
+  }
   session_start();
   session_destroy();
 
