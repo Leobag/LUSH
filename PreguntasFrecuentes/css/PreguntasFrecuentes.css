@@ -1,99 +1,52 @@
-.body {
-  background-color: rgb(244, 244, 244);
-  position: relative;
+#pasaporte {
+  width: 100%;
 }
 
-.logo1 {
+#logo {
+  width: 15%;
+  z-index: 2;
   position: relative;
-  width: 200px;
-  bottom: 300px;
-  left: 850px;
+  bottom: 350px;
+  left: 800px;
+}
+
+h1, h2, p {
+text-align: center;
+}
+
+#separadorprincipal {
+  border: solid 2px;
+  display: block;
+  width: 160px;
+  margin: 0 auto;
+  border-color: #D4AF37;
+  position: relative;
+  bottom: 180px;
 }
 
 h1 {
-position: relative;
-bottom: 190px;
-left: 280px;
-font-family: 'Raleway', sans-serif;
-font-size: 36px;
-z-index: 1;
-margin: 0 auto;
-}
-
-.menu li {
-  position: relative;
-  display: inline-block;
-  bottom: 110px;
-  right: 35px;
-  padding: 10px;
-  font-size: 24px;
-}
-
-h3 {
-  position: relative;
-  top: 25px;
-  left: 35px;
-  font-size: 16px;
-  z-index: 1;
-  margin: 0 auto;
-}
-.falsoheader {
-  background-color: #fff;
-  padding: 0;
-  height: 200px;
-  width: 1700px;
-  position: relative;
-  bottom: 150px;
-  margin: 0;
-  z-index: 0;
-  margin: 0 auto;
-}
-
-.icono {
-  position: relative;
-  bottom: 70px;
-  left: 55px;
-  z-index: 1;
-}
-
-.circulofondo {
-  position: relative;
-  bottom: 65px;
-  right: 150px;
-  z-index: 0;
-}
-
-.separador {
-  background-color: rgb(205, 205, 205);
   position: relative;
   bottom: 180px;
-  left: 130px;
-  width: 1400px;
-  height: 1px;
-  z-index: 2;
-  margin: 0 auto;
 }
 
-.informacion {
-  background-color: #fff;
-  height: 260px;
-  width: 950px;
-  position: relative;
-  bottom: 150px;
-  z-index: 0;
-  margin-top: 20px;
-  margin-left: 95px;
-}
-
-.bodymargin {
-  margin-left: 100px;
-}
-
-.card {
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.preguntas {
-  position: relative;
-  bottom: 125px;
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+hr {
+ border: solid 2px;
+ display: block;
+ width: 100%;
+ margin: 0 auto;
+ border-color: #D4AF37;
+ position: relative;
+ bottom: 15px;
 }
