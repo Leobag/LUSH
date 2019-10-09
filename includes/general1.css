@@ -142,6 +142,10 @@
 .nav{
     display: none;
 }
+
+#dropdown-big{
+  display: none;
+}
 .logo-left, .logo-right{
     display: none;
 }
