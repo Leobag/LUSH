@@ -26,6 +26,9 @@
   display:none;
 }
 
+#header #dropdown-big .dropdown-menu{
+  background-color: rgba(108, 108, 106, 0.5);
+}
 
 #header ul li{
   display: inline;
