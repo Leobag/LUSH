@@ -14,38 +14,42 @@
 
     <?php include("../includes/header.php"); ?>
 
-  <img src="img/avion-ventana.jpg" alt="avion">
+    <img src="img/avion-ventana2.jpg" alt="ventana" class="fotoavion">
 
-   <h1>Contacto</h1>
-   <p>Complete el siguiente formulario con sus datos y a la brevedad será contactado.</p>
-<h6>prueba</h6>
-   <form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Nombre</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
-        <small id="emailHelp" class="form-text text-muted"></small>
-     </div>
-     <div class="form-group">
-         <label for="exampleInputEmail1">Apellido</label>
-         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Apellido">
-         <small id="emailHelp" class="form-text text-muted"></small>
-      </div>
-     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar Email">
-      <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+    <h1 class="frase">NUESTRO VIAJE COMIENZA CON LAS <br> RELACIONES</h1>
+
+    <h2 class="hablemos">Hablemos</h2>
+
+    <hr>
+
+    <h3>DEJA UN MENSAJE</h3>
+
+    <h4>Recibimos todos los mensajes enviados a través de este <br> formulario. Hacemos todo lo posible para responder a la brevedad</h4>
+
+    <form action="/my-handling-form-page" method="post">
+        <div>
+            <label class="nombre" for="name">Nombre:</label>
+            <input type="text" id="name" size="50"/>
+        </div>
+        <div class="email">
+            <label id="email" for="mail">E-mail:</label>
+            <input type="email" id="mail" size="50"/>
+        </div>
+        <div class="mensaje">
+            <label id="mensaje" for="msg">Mensaje:</label>
+            <input type="mensaje" id="msj" size="50"/>
+        </div>
+    </form>
+
+    <button type="button" class="btn btn-dark">Enviar</button>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.331313980557!2d-58.38386198423642!3d-34.62106686592425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb28ea8781cb%3A0xb791570f7236c962!2sDigital%20House%20-%20Campus%20Center!5e0!3m2!1sen!2sar!4v1569956130212!5m2!1sen!2sar" width="1900" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+    <div class="direccion">
+    <h5>Nuesta Direccion</h5>
+    <p>1007 Swift Avenue<br>
+      North Kansas City, MO 64116</p>
     </div>
-    <div class="form-group">
-     <label for="exampleInputEmail1">Telefono</label>
-     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar Telefono">
-     <small id="emailHelp" class="form-text text-muted"></small>
-   </div>
-   <div class="form-group">
-     <label for="exampleFormControlTextarea1">Consulta</label>
-     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-   </div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
-  </form>
 
   <?php include("../includes/footer.php"); ?>
 
