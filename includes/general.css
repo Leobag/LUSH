@@ -21,7 +21,8 @@
   padding-top: 20px;
 }
 
-#header .dropdown{
+
+#header #dropdown-small{
   display:none;
 }
 
@@ -147,7 +148,7 @@
   justify-content: space-between;
 }
 
-#header .dropdown{
+#header #dropdown-small{
   display: contents;
 }
 
@@ -162,7 +163,7 @@
   margin: 20px;
 }
 
-.dropdown button{
+#dropdown-small button{
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -174,10 +175,10 @@
   margin-top: 20px;
 }
 
-.dropdown-menu{
+#dropdown-small .dropdown-menu{
   background-color: grey;
 }
-.dropdown-item{
+#dropdown-small .dropdown-item{
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-style: normal;

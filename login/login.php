@@ -1,11 +1,6 @@
 <?php
 
-if($_COOKIE || $_SESSION){
-  header("Location: ../home/index.php?login=success");
-}
-
 include("loginValidation.php");
-
  ?>
 <html lang="en" dir="ltr">
   <head>

@@ -1,5 +1,5 @@
 <?php
-if($_POST){
+if(isset($_POST["login"])){
  $json=file_get_contents("../register/usuarios.json");
  $usuarios=json_decode($json,true);
  $email=$_POST["email"];
@@ -25,12 +25,12 @@ if(isset($existe)){
 
       setcookie($cookie_name,
       $jsoncookie,
-      time() + (365 * 24 * 60 * 60)
+      time() + (365 * 24 * 60 * 60),"/"
     );
     header("Location: ../home/index.php?login=success");
     }
 
-    else{
+    if(!$_POST["recordar"]){
     session_start();
     $_SESSION["nombre"] = $existe["nombre"];
     $_SESSION["apellido"] = $existe["apellido"];
