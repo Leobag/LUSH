@@ -5,12 +5,13 @@ if(isset($_POST["login"])){
  $email=$_POST["email"];
  $password=$_POST["password"];
  $existe = null;
-
+if(count($usuarios) != 0){
  foreach($usuarios as $usuario){
    if($usuario["email"] == $email){
      $existe = $usuario;
    } else{header("Location: login.php?login=error");}
  }
+} else{header("Location: login.php?login=error");}
 
 if(isset($existe)){
   if(password_verify($password, $existe["password"]) == true){
@@ -29,7 +30,7 @@ if(isset($existe)){
     );
     header("Location: ../home/index.php?login=success");
     }
-
+}
     if(!$_POST["recordar"]){
     session_start();
     $_SESSION["nombre"] = $existe["nombre"];
@@ -39,7 +40,7 @@ if(isset($existe)){
     header("Location: ../home/index.php?login=success");
     }
 
- }
+
  else{
    header("Location: login.php?email=$email&login=pass_incorrect");
     }
