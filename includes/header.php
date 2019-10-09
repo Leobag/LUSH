@@ -1,7 +1,6 @@
 
 <?php
 session_start();
-setcookie("autologin", "", -1);
 $estilo= "font-family: 'Raleway', sans-serif;
 font-weight: 600;
 font-style: normal;
