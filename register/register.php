@@ -80,7 +80,7 @@ include("../usuarios/validations.php");
                       </div>
                       <div class="form-group">
                           <label for="apellido">Apellido: </label>
-                          <input type="text" class="form-control" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Escribir Apellido" value="<?php if(isset($_GET["apellido"]) && $_GET["apellido"]){echo $_GET["apellido"];} ?>">
+                          <input type="text" class="form-control" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Escribir Apellido" value="<?php if(isset($_GET["apellido"])){echo $_GET["apellido"];} ?>">
                       </div>
                       <div class="form-group">
                           <label for="email">Email: </label>

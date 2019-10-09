@@ -59,6 +59,7 @@ $usuariosFinal = json_encode($usuariosArray);
 
 file_put_contents("usuarios.json", $usuariosFinal);
 
-header("Location: ../home/index.php?register=exito&nombre=$nombre&apellido=$apellido&email=$email");
+header("Location: ../home/index.php?register=success");
+
 }  }
 ?>
