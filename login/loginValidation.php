@@ -1,16 +1,17 @@
 <?php
-if($_POST){
+if(isset($_POST["login"])){
  $json=file_get_contents("../register/usuarios.json");
  $usuarios=json_decode($json,true);
  $email=$_POST["email"];
  $password=$_POST["password"];
  $existe = null;
-
+if(count($usuarios) != 0){
  foreach($usuarios as $usuario){
    if($usuario["email"] == $email){
      $existe = $usuario;
    } else{header("Location: login.php?login=error");}
  }
+} else{header("Location: login.php?login=error");}
 
 if(isset($existe)){
   if(password_verify($password, $existe["password"]) == true){
@@ -25,12 +26,12 @@ if(isset($existe)){
 
       setcookie($cookie_name,
       $jsoncookie,
-      time() + (365 * 24 * 60 * 60)
+      time() + (365 * 24 * 60 * 60),"/"
     );
     header("Location: ../home/index.php?login=success");
     }
-
-    else{
+}
+    if(!$_POST["recordar"]){
     session_start();
     $_SESSION["nombre"] = $existe["nombre"];
     $_SESSION["apellido"] = $existe["apellido"];
@@ -39,7 +40,7 @@ if(isset($existe)){
     header("Location: ../home/index.php?login=success");
     }
 
- }
+
  else{
    header("Location: login.php?email=$email&login=pass_incorrect");
     }
