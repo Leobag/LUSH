@@ -1,0 +1,31 @@
+html{
+  font-family: 'Nanum Gothic', monospace;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Raleway', monospace;
+}
+body{
+  overflow: hidden;
+}
+
+#main{
+  width: 100vw;
+  height: 75vh;
+  display: flex;
+  padding-top: 80px;
+
+}
+
+#main #preguntas{
+  width: 80vw;
+  height: 65vh;
+  align-self: center;
+  margin: 0 auto;
+}
+#main #preguntas .mainheader{
+  font-size: 1.8rem;
+}
+#main #preguntas .mainsubheader{
+  font-size: 1.2rem;
+  text-align: left;
+}

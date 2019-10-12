@@ -11,7 +11,9 @@ if(count($usuarios) != 0){
      $existe = $usuario;
    } else{header("Location: login.php?login=error");}
  }
-} else{header("Location: login.php?login=error");}
+}
+
+else{header("Location: login.php?login=error");}
 
 if(isset($existe)){
   if(password_verify($password, $existe["password"]) == true){
@@ -29,9 +31,10 @@ if(isset($existe)){
       time() + (365 * 24 * 60 * 60),"/"
     );
     header("Location: ../home/index.php?login=success");
-    }
+
 }
-    if(!$_POST["recordar"]){
+
+    else{
     session_start();
     $_SESSION["nombre"] = $existe["nombre"];
     $_SESSION["apellido"] = $existe["apellido"];
@@ -40,12 +43,13 @@ if(isset($existe)){
     header("Location: ../home/index.php?login=success");
     }
 
+}
 
  else{
    header("Location: login.php?email=$email&login=pass_incorrect");
     }
-}
 
+}
 }
 
 

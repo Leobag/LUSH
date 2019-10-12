@@ -44,7 +44,7 @@ if(isset($_COOKIE["autologin"])){
       <ul class="pl-0 mt-3 mb-0 pb-0">
         <li style="<?php if(isset($_COOKIE["autologin"]) || count($_SESSION) != 0){echo $display;}?>" ><a href="../login/login.php">Log in</a></li>
 
-        <?php if(isset($_COOKIE["autologin"])){ ?>
+        <?php  if(isset($_COOKIE["autologin"])){ ?>
 
         <div id="dropdown-big" class="dropdown">
               <a style="<?=$estilo?>" class="btn dropdown-toggle pr-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,18 +53,19 @@ if(isset($_COOKIE["autologin"])){
 
               <div class="dropdown-menu" style="background-color: rgba(108, 108, 106, 0.5);" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" style="<?= $estilo  ?>" href="../perfil/perfil.php">Perfil</a>
+                <a class="dropdown-item" href="../carrito/carrito.php"><i class="fas fa-shopping-cart"></i></a>
                 <a class="dropdown-item" style="<?= $estilo  ?>" href="../logout/logout.php"> Cerrar Sesion </a>
               </div>
         </div>
-        <?php }?>
+      <?php }  ?>
 
 
 
-        <?php if(isset($_COOKIE["autologin"])) { ?>
+        <?php if(count($_SESSION) != 0 && !isset($_COOKIE["autologin"])) { ?>
 
         <div id="dropdown-big" class="dropdown">
               <a style="<?=$estilo?>" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Bienvenido <?php if(isset($_COOKIE["autologin"])){ echo $nombrecookie; }?>
+                Bienvenido <?= $_SESSION["nombre"]; ?>
               </a>
 
               <div class="dropdown-menu" style="background-color: rgba(108, 108, 106, 0.5);" aria-labelledby="dropdownMenuLink">
@@ -75,20 +76,7 @@ if(isset($_COOKIE["autologin"])){
         </div>
         <?php }?>
 
-      <?php if(count($_SESSION) != 0 && !isset($_COOKIE["autologin"])) { ?>
 
-        <div id="dropdown-big" class="dropdown">
-              <a style="<?=$estilo?>" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Bienvenido <?php if(count($_SESSION) != 0 ){echo $_SESSION["nombre"];}?>
-              </a>
-
-              <div class="dropdown-menu" style="background-color: rgba(108, 108, 106, 0.5);" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" style="<?= $estilo  ?>" href="../perfil/perfil.php">Perfil</a>
-                <a class="dropdown-item" href="../carrito/carrito.php"><i class="fas fa-shopping-cart"></i></a>
-                <a class="dropdown-item" style="<?= $estilo  ?>" href="../logout/logout.php"> Cerrar Sesion </a>
-              </div>
-        </div>
-        <?php }?>
 
         <li><a style="<?php if(isset($_COOKIE["autologin"]) || count($_SESSION) != 0){echo $display;}?>"href="../carrito/carrito.php"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
