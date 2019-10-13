@@ -40,13 +40,16 @@ else{
 
   function crearUsuario(){
     $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
     $usuario = [
+      "id" => [
 
     "nombre" => $_POST["nombre"],
     "apellido" => $_POST["apellido"],
     "email" => $_POST["email"],
     "password" => $hash
-  ];
+
+  ]];
   return $usuario;
   }
 
