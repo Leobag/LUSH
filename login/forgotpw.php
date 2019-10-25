@@ -21,21 +21,26 @@ if(isset($_POST["forgotpw"])){
 
     $passtemp = randomPassword();
     $subject = "Resetear email";
-    $body = "Hola Pato! Aca te mandamos el codigo para poder resetear tu correo" . $passtemp;
-
+    $body = "Hola Pato! Aca te mandamos el codigo para poder resetear tu correo \r\n \r\n $passtemp \r\n Espero que tenga un buen día, \r\n LUSH";
 
     if(count($usuarios) != 0) {
     foreach($usuarios as $id => $usuario){
-      if($usuario["id"]["email"] == $_POST["email_fp"]){
-        $existe = $usuario["id"];
+      if($usuario["email"] == $_POST["email_fp"]){
+        $existe = $usuario;
+        $existe["password"] = $passtemp;
 
 
+        unset($usuarios[$id]);
+        array_push($usuarios, $existe);
+        $newjson = json_encode($usuarios);
 
-      } else{echo "HUBO UN ERROR";}
+        mail($_POST["email_fp"], $subject, $body);
+
+      } else{continue;}
     }
-  } else{header("Location: forgotpw.php?email=false2");}
+  } else{header("Location: forgotpw.php?email=false");}
 
-var_dump($existe); exit();
+
 
 
 

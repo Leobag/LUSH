@@ -1,0 +1,103 @@
+html{
+box-sizing: border-box;
+display: flex;
+overflow-x: hidden;
+overflow-y: scroll!important;
+font-family: 'Nanum Gothic', monospace;
+}
+#header{
+  position: relative!important;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Raleway', monospace;
+}
+body{
+  width: 100vw;
+  min-height:
+}
+
+#divTodo{
+  position: relative;
+}
+#divTodo #collapsemain{
+
+}
+#photobackground{
+  display: none;
+}
+#collapseLeft .card{
+  min-height: 400px;
+}
+.calendar-main{
+  height:350px;
+}
+
+table.table{
+  table-layout: fixed;
+  height: 200px;
+}
+table.table tbody{
+  width: 100vw;
+}
+
+table.table td{
+  justify-content: space-between;
+  padding: 6px;
+  position: relative;
+}
+table.table td h4{
+  font-size: 1rem;
+
+}
+table.table th.header{
+  font-size: 0.8rem;
+  padding: 5px;
+}
+#calendar .available-day{
+
+}
+#calendar .available-day:hover{
+
+}
+#calendar .unavailable-day{
+  opacity: 0.7;
+  
+
+}
+
+#collapsemain .calendar-family{
+margin-top: 20px;
+height: 200px;
+}
+#calendar .elegir-cantidad-gente{
+  width: 100%;
+  height: 70px;
+}
+
+#calendar .calendar-family-adults{
+
+}
+#calendar .calendar-family-adults{
+
+}
+
+
+@media screen and (min-width: 768px;){
+#header{
+  position: fixed;
+}
+
+
+
+#photobackground{
+  width: 100vw;
+  height: 250px;
+}
+#photobackground img{
+  width: 100vw;
+  height: 40vh;
+  align-self:center;
+  object-fit:cover;
+}
+
+}
