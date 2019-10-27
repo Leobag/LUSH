@@ -29,7 +29,7 @@ body{
   min-height: 400px;
 }
 .calendar-main{
-  height:350px;
+  min-height:400px;
 }
 
 table.table{
@@ -61,7 +61,7 @@ table.table th.header{
 }
 #calendar .unavailable-day{
   opacity: 0.7;
-  
+
 
 }
 
@@ -71,14 +71,33 @@ height: 200px;
 }
 #calendar .elegir-cantidad-gente{
   width: 100%;
-  height: 70px;
+  height: 100px;
+  flex-direction: row;
 }
 
 #calendar .calendar-family-adults{
+justify-content: space-between;
+height: 80px;
 
 }
-#calendar .calendar-family-adults{
+#calendar .labelAdults {
+width: 45vw;
+height: 80px;
+}
 
+#calendar .btn-right{
+  position: absolute;
+  height: 80px;
+  width: 25%;
+}
+#calendar .btn-left{
+  position: absolute;
+  height: 80px;
+  width: 25%;
+}
+#adults{
+  height: 80px;
+  width: 250px;
 }
 
 

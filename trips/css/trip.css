@@ -68,7 +68,7 @@ position: relative;
   height: 45vh;
 }
 .carousel-inner .carousel-item img{
-  height: 47vh;
+  height: 310px;
   width: 100vw;
   object-fit: cover;
 }
@@ -106,5 +106,8 @@ align-self: center;
 .btn{
 }
 .btnlink{
+}
+
+@media screen and (max-width: 768px;){
 
 }

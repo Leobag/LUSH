@@ -1,0 +1,56 @@
+html{
+box-sizing: border-box;
+display: flex;
+overflow-x: hidden;
+overflow-y: scroll!important;
+font-family: 'Nanum Gothic', monospace;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Raleway', monospace;
+}
+body{
+  width: 100vw;
+  min-height:
+}
+
+#top{
+  height: 120px;
+}
+#main{
+  position: relative;
+  justify-content: center;
+  min-height: 600px;
+}
+#main #center{
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  flex-direction: row;
+
+}
+#left{
+  position: relative;
+}
+#left img{
+  position: absolute;
+  align-self: center;
+  text-align: center;
+  border-radius: 50%;
+}
+#right{
+  text-align: left;
+}
+#right .section-right{
+
+}
+#right .section-right h4{
+font-weight: 600;
+}
+#right .section-right .button{
+justify-content: row;
+height: 45px;
+}
+#right .section-right .nombre{
+}
+#right .section-right .value{
+}

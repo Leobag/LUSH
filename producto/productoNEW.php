@@ -1,6 +1,11 @@
 <?php
 include_once("calendario.php");
 
+
+if ($_GET["adults"] == null && $_GET["children"] == null){
+  $_GET['adults'] ? $_GET['adults'] : 2;
+  $_GET['children'] ? $_GET['children'] : 0;
+}
  ?>
 
 <html lang="en">
@@ -11,7 +16,7 @@ include_once("calendario.php");
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="css/cssprod1.css">
+    <link rel="stylesheet" href="css/cssprod.css">
 
     <title>Descubrí Maldivas - LUSH</title>
   </head>
@@ -53,18 +58,23 @@ include_once("calendario.php");
                  }
                   echo build_calendar($month, $year);
 
+                  $value = "x";
+
+
                    ?>
                    </div>
                    <div class="calendar-family">
                      <div class="calendar-family-adults d-flex">
                        <div class="eligir-cantidad-gente">
-                           <button class="btn-left" type="button" class="btn btn-primary">  </button>
-                           <div class="betweenbtn">
-                             <label class="labelAdults" for="adults">
-                               <input id="adults" name="adults"  placeholder value="2">
-                             </label>
-                           </div>
-                           <button class="btn-right" type="button" class="btn btn-primary"></button>
+                             <div class="betweenbtn">
+                               <button class="btn-left" type="button" class="btn btn-primary">  </button>
+
+                                   <label class="labelAdults" for="adults">
+                                     <input id="adults" name="adults"  placeholder="" value="2">
+                                   </label>
+                               <button class="btn-right" type="button" class="btn btn-primary"></button>
+
+                             </div>
                        </div>
                      </div>
                      <div class="calendar-family-children">
