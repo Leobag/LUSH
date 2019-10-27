@@ -1,3 +1,8 @@
+<?php
+include_once("calendario.php");
+
+ ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,29 +11,69 @@
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="css/cssprodnew.css">
+    <link rel="stylesheet" href="css/cssprod1.css">
 
     <title>Descubrí Maldivas - LUSH</title>
   </head>
   <body>
     <?php include("../includes/header.php"); ?>
 
-    <div id="photobackground"> <!-- Background photo top -->
+    <div id="photobackground" class="display-sm-none"> <!-- Background photo top -->
       <img src="img/mal.jpg" alt="bckgrnd">
     </div>
     <main id="divTodo" class="container-fluid">
 
 
-      <section id="left" class="row col-lg-8"> <!-- main div left  -->
-        <article class=""> <!-- Select guests/CHECKIN/OUT/SEARCH -->
-          <p>
+      <section id="left" class="row"> <!-- main div left  -->
+        <article id="collapsemain" class="col-12 col-md-8"> <!-- Select guests/CHECKIN/OUT/SEARCH -->
+
             <a class="btn" data-toggle="collapse" href="#collapseLeft" role="button" aria-expanded="false" aria-controls="collapseLeft">
               Link with href
             </a>
-          </p>
           <div class="collapse" id="collapseLeft">
             <div class="card card-body"> <!-- Div collapse izquierda  -->
+              <div id="Calendar" class="row "> <!-- Div Calendar-->
+                <div class="CalendarTOP col-12">
+                <p>Por favor elija la fecha del check-in</p>
+                <p>Precios mostrados en USD </p>
+                </div>
+                <div class="calendarBOTTOM col-12">
+                  <div class="calendar-main">
 
+
+                   <?php
+
+                   if(isset($_GET['month']) && isset($_GET['year'])){
+                   $month = (int) ($_GET['month'] ? $_GET['month'] : date('m'));
+                   $year = (int)  ($_GET['year'] ? $_GET['year'] : date('Y'));
+                 } else{
+                   $currentDate = getdate();
+                   $month = $currentDate['mon'];
+                   $year = $currentDate['year'];
+                 }
+                  echo build_calendar($month, $year);
+
+                   ?>
+                   </div>
+                   <div class="calendar-family">
+                     <div class="calendar-family-adults d-flex">
+                       <div class="eligir-cantidad-gente">
+                           <button class="btn-left" type="button" class="btn btn-primary">  </button>
+                           <div class="betweenbtn">
+                             <label class="labelAdults" for="adults">
+                               <input id="adults" name="adults"  placeholder value="2">
+                             </label>
+                           </div>
+                           <button class="btn-right" type="button" class="btn btn-primary"></button>
+                       </div>
+                     </div>
+                     <div class="calendar-family-children">
+
+                     </div>
+
+                   </div>
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -41,7 +86,7 @@
 
         </article>
       </section>
-      <panel id="right" class="row col-lg-4"> <!-- main div right -->
+      <panel id="right" class="row  d-sm-none col-md-4"> <!-- main div right -->
         <article class=""> <!-- Static sell window  -->
 
         </article>

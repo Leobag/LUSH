@@ -1,5 +1,5 @@
 <?php
-include("loginvalidation.php");
+include("loginValidation.php");
 
 
 if(isset($_POST["forgotpw"])){
@@ -8,19 +8,46 @@ if(isset($_POST["forgotpw"])){
     $json=file_get_contents("../register/usuarios.json");
     $usuarios=json_decode($json,true);
 
-    foreach($usuarios as $usuario){
+    function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = [];
+    $alphaLength = strlen($alphabet) - 1;
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass);
+}
+
+    $passtemp = randomPassword();
+    $subject = "Resetear email";
+    $body = "Hola Pato! Aca te mandamos el codigo para poder resetear tu correo \r\n \r\n $passtemp \r\n Espero que tenga un buen día, \r\n LUSH";
+
+    if(count($usuarios) != 0) {
+    foreach($usuarios as $id => $usuario){
       if($usuario["email"] == $_POST["email_fp"]){
         $existe = $usuario;
-      } else{header("Location: forgotpw.php?email=false");}
+        $existe["password"] = $passtemp;
+
+
+        unset($usuarios[$id]);
+        array_push($usuarios, $existe);
+        $newjson = json_encode($usuarios);
+
+        mail($_POST["email_fp"], $subject, $body);
+
+      } else{continue;}
     }
-    session_start();
-    $existe["email"] = $email;
-    $subject = "Resetear email";
-    $body = "Hola $existe['nombre']! Aca te mandamos el codigo para poder resetear tu correo" . '\r\n';
+  } else{header("Location: forgotpw.php?email=false");}
 
 
-  } else{header("Location: forgotpw.php?email=false")}
+
+
+
+
+  } else{header("Location: forgotpw.php?email=false");}
 }
+
  ?>
 
 
@@ -42,10 +69,11 @@ if(isset($_POST["forgotpw"])){
         <div class="col-12">
           <h1 class="mainheader">Has olvidado tu contraseña?</h1>
           <h3 class="mainsubheader">Entrá tu email acá, vas a recibir un codigo de confirmación a tu correo.</h3>
-          <form>
+           <form class="" action="forgotpw.php" method="post">
+
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" name="email_fp"class="form-control" id="email" aria-describedby="emailHelp" placeholder="Escribir email aca: ">
+              <input type="email" name="email_fp" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Escribir email aca: ">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <button type="submit" name="forgotpw" class="btn btn-primary">Submit</button>

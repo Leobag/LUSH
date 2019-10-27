@@ -1,5 +1,5 @@
 <?php
-include("../usuarios/validations.php");
+include_once("../usuarios/validations.php");
 
 
  ?>
@@ -12,7 +12,7 @@ include("../usuarios/validations.php");
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="css/allstyle.css">
+    <link rel="stylesheet" href="css/allstyles.css">
     <title>LUSH - Register</title>
   </head>
   <body>
@@ -26,52 +26,6 @@ include("../usuarios/validations.php");
 
                   <form class="formAll" action="register.php" method="POST" enctype="multipart/form-data">
 
-
-                  <?php
-                    if(!isset($_GET['register'])){
-
-                    } else{
-                      $signupCheck = $_GET['register'];
-
-                      switch ($signupCheck) {
-                        case 'empty':
-                          echo "<p class='error'> No completaste todos los campos! </p>";
-                          break;
-
-                          case 'char':
-                          echo "<p class='error'> Los campos solo pueden tener caracteres romanos</p>";
-                          break;
-
-                          case 'nombre':
-                          echo "<p class='error'> No completaste el campo nombre! </p>";
-                          break;
-
-                          case 'apellido':
-                          echo "<p class='error'> No completaste el campo apellido! </p>";
-                          break;
-
-                          case 'email':
-                          echo "<p class='error'> El campo de email tiene que ser de este formato: leo@DH.com</p>";
-                            break;
-
-                          case 'verify':
-                          echo "<p class='error'> Los campos de contraseña tienen que coincidir </p>";
-                          break;
-
-                          case 'variable':
-                          echo "<p class='error'> La contraseña necesita tener por lo menos 6 caracteres </p>";
-                          break;
-
-                          case 'corto':
-                          echo "<p class='error'> La contraseña necesita tener por lo menos 6 caracteres </p>";
-                          break;
-
-                          case 'exito':
-                          echo "<p class='exito'> Te has registrado con exito!";
-                          break;
-                        }
-                      }
-                   ?>
 
 
                       <div class="form-group">
@@ -96,15 +50,49 @@ include("../usuarios/validations.php");
                       </div>
                       <div class="form-group">
                           <label for="profilepic">Subir foto de perfil: </label>
-                          <input type="file" class="form-control" id="profilepic" aria-describedby="nameHelp" value="">
+                          <input type="file" class="form-control" id="profilepic" name="profilepic" aria-describedby="nameHelp" value="">
                       </div>
                       <div class="form-group form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1" value="">
-                          <label class="form-check-label" for="check" required>He leído los términos y condiciones</label>
+                          <input type="checkbox" class="form-check-input" id="checkfinal" name="checkfinal" value="">
+                          <label class="form-check-label"  for="checkfinal" required>He leído los términos y condiciones</label>
                       </div>
                           <small id="idHelp" class="form-text text-muted">Lush Luxury Travel no comparte informacion personal con terceros. </br></small>
                           </br>
-                          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                          <button id="submitbottom" type="submit" name="submit" class="btn btn-primary">Submit</button>
+                          <?php if(isset($_GET["register"])){
+                                switch ($_GET["register"]) {
+                                  case 'vacio':
+                                      echo "<p class='error'> Usted dejó algún campo vacio, por favor intente de nuevo. </p> </br>";
+                                    break;
+
+                                  case 'verificar':
+                                      echo "<p class='error'> Las contraseñas no verifican, por favor intente de nuevo. </p> </br>";
+                                    break;
+
+                                  case 'password':
+                                      echo "<p class='error'> La contraseña necesita tener por lo menos 6 caracteres, por favor intente de nuevo. </p> </br>";
+                                    break;
+
+                                  case 'char':
+                                      echo "<p class='error'> EL nombre & apellido solo pueden tener caracteres romanos, por favor intente de nuevo. </p> </br>";
+                                    break;
+
+                                  case 'error':
+                                      echo "<p class='error'> Hubo un error, por favor intente de nuevo. </p> </br>";
+                                    break;
+
+                                  case 'existe':
+                                      echo "<p class='error'> El usuario ya existe, por favor intente con otro correo. </p> </br>";
+                                    break;
+
+                                  case 'archivo':
+                                      echo "<p class='error'> La foto de perfil tiene que ser de formato JPG, JPEG o PNG. </p> </br>";
+                                    break;
+
+
+                                }
+
+                              } ?>
 
 
 

@@ -32,3 +32,11 @@ section {
   width: 80%;
 
 }
+#submitbottom{
+  margin-bottom: 30px;
+}
+
+.error{
+  color: red;
+  font-weight: 600;
+}
