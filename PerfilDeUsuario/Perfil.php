@@ -8,46 +8,33 @@
    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
    <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
    <link rel="stylesheet" href="../includes/general1.css">
-   <link rel="stylesheet" href="responsive2.css">
+   <link rel="stylesheet" href="css/Perfil.css">
   </head>
   <body>
 
 <?php include("../includes/header.php"); ?>
 
 <div class="row">
-  <div class="falsoheader col-sm-6">
+  <div class="falsoheader col-sm-12">
     <img src="img/foto.jpg" alt="perfil" class="foto">
-      <h1 class="nombre">Martin Sozzi</h1>
+      <h1 class="nombre">Nombre Apellido</h1>
         <h2 class="nacionalidad">Argentina</h2>
           </div>
-  <div class="londres col-sm-6">
-    <img src="img/londres.jpg" alt="foto" class="viaje1">
-    <h3>Ultimo Viaje</h3>
-     <h4>Londres</h4>
-       <h5>Puente de la Torre</h5>
-        <h6>17 - 27 Agosto, 2017</h6>
           </div>
-</div>
 
-<div class="informacion row">
-  <div class="col-sm-12">
-    <ul>
-      <li id="informacion">Edad:</li>
-      <li id="informacion">Direccion:</li>
-      <li id="informacion">Email:</li>
-      <li id="informacion">Celular:</li>
-    </ul>
-    <ul>
-      <li id="datos">29</li>
-      <li id="datos">Buenos Aires</li>
-      <li id="datos">ejemplo@gmail.com</li>
-      <li id="datos">54 9 11 0234 5678</li>
-    </ul>
-  </div>
+          <div class="div2 row">
+            <div class="col-sm-12">
+              <ul>
+                <li class="informacion">Fecha de Nacimiento:</li>
+                <li class="informacion">Direccion:</li>
+                <li class="informacion">Email:</li>
+                <li class="informacion">Telefono:</li>
+              </ul>
+            </div>
 
-</div>
+          </div>
 
-<?php include("../includes/footer.php"); ?>
+          <?php include("../includes/footer.php"); ?>
 
- </body>
-</html>
+           </body>
+          </html>

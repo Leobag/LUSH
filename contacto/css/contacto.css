@@ -4,18 +4,18 @@
 
 .frase {
   font font-family: 'Raleway', monospace;
-  font-size: 60px;
+  font-size: 55px;
   color: White;
-  text-align: center;
   z-index: 1500;
   position: relative;
-  bottom: 250px;
+  bottom: 230px;
+  left: 250px;
 }
 
 .hablemos {
   text-align: center;
   position: relative;
-  bottom: 100px;
+  bottom: 50px;
 }
 
 hr {
@@ -25,7 +25,7 @@ hr {
   margin: 0 auto;
   border-color: #D4AF37;
   position: relative;
-  bottom: 100px;
+  bottom: 50px;
 }
 
 h3 {
@@ -39,5 +39,9 @@ h4 {
 }
 
 form {
-display: block;
+  display: block;
+}
+
+.mapa {
+  margin-top: 50px;
 }
