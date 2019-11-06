@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="responsive4.css">
+    <link rel="stylesheet" href="css/contacto.css">
    <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
   </head>
   <body>
