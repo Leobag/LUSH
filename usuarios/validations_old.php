@@ -52,21 +52,22 @@ else{
 }
 
 
-  include_once('../SQL/connect.php');
+  $usuarios = file_get_contents("usuarios.json");
+  $usuariosArray = json_decode($usuarios, true);
 
 
-$query = $db->query("SELECT * FROM users WHERE (email='$email')");
+$user_id = randomPassword();
 
-$user = $query->fetch(PDO::FETCH_ASSOC);
-
- /*var_dump($user); exit;*/
-
-if($user != false){
+foreach($usuariosArray as $array){
+  if($array["email"] == $_POST["email"]){
     header("Location: register.php?register=existe&nombre=$nombre&apellido=$apellido&email=$email");
     exit();
   }
-
-  $profilepic = null;
+  if($array["userID"] == $user_id){
+    $user_id = randomPassword();
+    continue;
+  }
+}
 
     if(isset($_FILES["profilepic"])){
       $file = $_FILES["profilepic"];
@@ -78,32 +79,33 @@ if($user != false){
           header("Location: ../register/register.php?register=archivo&nombre=$nombre&apellido=$apellido&email=$email");
           exit();
         }
-        $profilepic = randomPassword();
 
         $temp = $_FILES["profilepic"]["tmp_name"];
 
         $position = dirname(__FILE__) . "\profilepics";
 
-        $finalpos = $position ."/". $profilepic . "." . $ext;
+        $finalpos = $position ."/". $user_id . "." . $ext;
 
         move_uploaded_file($temp, $finalpos);
         }
     }
 
 
-$register = $db->prepare("INSERT INTO users VALUES (:id, :name, :surname, :email, :pass, :photo_name)");
+    $usuario = [
+    "nombre" => $_POST["nombre"],
+    "apellido" => $_POST["apellido"],
+    "email" => $_POST["email"],
+    "password" => $hash,
+    "userId" => $user_id
 
-    $register->bindValue(':id', null);
-    $register->bindValue(':name', $nombre, PDO::PARAM_STR);
-    $register->bindValue(':surname', $apellido, PDO::PARAM_STR);
-    $register->bindValue(':email', $email, PDO::PARAM_STR);
-    $register->bindValue(':pass', $hash, PDO::PARAM_STR);
-    $register->bindValue(':photo_name', $profilepic);
-
-    $register->execute();
+  ];
 
 
+$usuariosArray[] = $usuario;
 
+$usuariosFinal = json_encode($usuariosArray);
+
+file_put_contents("usuarios.json", $usuariosFinal);
 
 header("Location: ../login/login.php?register=success");
 
