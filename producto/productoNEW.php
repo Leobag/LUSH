@@ -1,11 +1,8 @@
 <?php
+
 include_once("calendario.php");
 
 
-if ($_GET["adults"] == null && $_GET["children"] == null){
-  $_GET['adults'] ? $_GET['adults'] : 2;
-  $_GET['children'] ? $_GET['children'] : 0;
-}
  ?>
 
 <html lang="en">
@@ -49,8 +46,8 @@ if ($_GET["adults"] == null && $_GET["children"] == null){
                    <?php
 
                    if(isset($_GET['month']) && isset($_GET['year'])){
-                   $month = (int) ($_GET['month'] ? $_GET['month'] : date('m'));
-                   $year = (int)  ($_GET['year'] ? $_GET['year'] : date('Y'));
+                   $month = ($_GET['month']) ? $_GET['month'] : date('m');
+                   $year = ($_GET['year']) ? $_GET['year'] : date('Y'));
                  } else{
                    $currentDate = getdate();
                    $month = $currentDate['mon'];
@@ -58,8 +55,30 @@ if ($_GET["adults"] == null && $_GET["children"] == null){
                  }
                   echo build_calendar($month, $year);
 
-                  $value = "x";
+                  $currentURL = $_SERVER['REQUEST_URI'];
 
+                  if(isset($_GET['adults']) && isset($_GET['children'])){
+                  $adults = ($_GET['adults']) ? $_GET['adults'] : 2;
+                  $children = ($_GET['children']) ? $_GET['children'] : 0;
+                }else{
+                  $adults = 2;
+                  $children = 0;
+                }
+
+                $querystring = $_SERVER['PHP_SELF']."?month=".$month."&year=".
+                $year."&adults=".$adults."&children=".$children."&datefrom="
+
+                  if($adults < 0 ){
+                    $adults = 0;
+                  }
+                  if($children < 0){
+                    $children = 0;
+                  }
+                  $plusAdults = $adults + 1;
+                  $minusAdults = $adults - 1;
+
+                  $plusChildren = $children + 1;
+                  $minusChildren = $children - 1;
 
                    ?>
                    </div>
@@ -67,12 +86,21 @@ if ($_GET["adults"] == null && $_GET["children"] == null){
                      <div class="calendar-family-adults d-flex">
                        <div class="eligir-cantidad-gente">
                              <div class="betweenbtn">
-                               <button class="btn-left" type="button" class="btn btn-primary">  </button>
+                               <a class="btn btn-left" href="
+                               <?php
+
+                               ?>
+                                  " role="button" class="btn btn-primary"> . </a>
 
                                    <label class="labelAdults" for="adults">
-                                     <input id="adults" name="adults"  placeholder="" value="2">
+                                     <input id="adults" name="adults"  placeholder="" value="">
                                    </label>
-                               <button class="btn-right" type="button" class="btn btn-primary"></button>
+
+                               <a class="btn btn-right" href="
+                               <?php if(isset($_GET["adults"])){echo ($_GET['adults'] + 1); echo $currentURL;}
+                                   elseif(isset($_GET["month"])){echo $currentURL . "&adults=3";}
+                                   else{echo $currentURL . "?adults=3";} ?>
+                                  " role="button" class="btn btn-primary"> . </a>
 
                              </div>
                        </div>
