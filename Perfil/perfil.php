@@ -1,5 +1,20 @@
 <?php
 
+$conn = mysqli_connect("localhost", "lush", "", "LUSH_db");
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM users where id = 2";
+$result = mysqli_query($conn, $sql)or die(mysqli_error($conn));
+$user = mysqli_fetch_assoc($result);
+
+
+
+
+
+
 
 
  ?>
@@ -11,49 +26,92 @@
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="CSS/perfil.css">
+    <link rel="stylesheet" href="CSS/estiloperfil.css">
     <title>Perfil de Usuario - LUSH</title>
   </head>
   <body>
     <?php include_once("../includes/header.php"); ?>
-
-    <div id="top" class="">
-    </div>
-
-
-    <main id="main" class="container-fluid d-flex">
-      <section id="center"class="row">
-        <div id="left" class="col-5">
-          <div id="profilepic" class="">
-            <img class="align-self-center col-10" src="img/profpic_empty.png" alt="Vacio">
+    <main id="main" class="">
+      <div class="page-title row pt-5">
+        <div class="title col-12 text-center pt-3 mb-4">
+          <h1>Mi Cuenta</h1>
+          <div class="feature_divider">
           </div>
         </div>
-        <div id="right" class="col-7">
-          <div class="section-right row">
-            <h4>Datos personales</h4>
-            <div class="">
-
+      </div>
+    </div>
+    <section id="section-left"class="row">
+      <div id= "profile-pic" class="col-12 col-md-4 col-lg-4 text-center">
+        <img class="align-self-center col-10" src="img/leo.jpg" alt="Vacio">
+      </div>
+      <div class="section-right col-12 col-md-6 col-md-6 rounded pr-5">
+        <h2>Datos personales</h2>
+          <div class="row border rounded">
+            <div class="field col-sm-12 col-m-5 col-lg-5 pt-2">
+              <p>Nombre</p>
+            </div>
+            <div class="value col-sm-12 col-m-7 col-lg-7 pt-2">
+              <p><?php echo $user["name"] ?></p>
+            </div>
+            <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
+              <p>Apellido</p>
+            </div>
+            <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+              <p><?php echo $user["surname"] ?></p>
+            </div>
+            <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
+              <p>email</p>
+            </div>
+            <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+              <p><?php echo $user["email"] ?></p>
             </div>
           </div>
-          <div class="section-right row">
-            <h4>Direccion</h4>
-            <div class="">
-
-            </div>
-          </div>
-          <div class="section-right">
-            <h4>Tarjetas</h4>
-              <div class="button row">
-                <div class="nombre col-5">
-                  Hola
+          <div class="section-right mt-3">
+            <h2>Direccion</h2>
+              <div class="row border rounded">
+                <div class="field col-sm-12 col-m-5 col-lg-5 pt-2">
+                  <p>Calle</p>
                 </div>
-                <div class="value col-7">
-                  Ciao
+                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+                  <p>Pergamino 325</p>
+                </div>
+                <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
+                  <p>Piso/Depto</p>
+                </div>
+                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+                  <p>7B</p>
+                </div>
+                <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
+                  <p>Codigo Postal</p>
+                </div>
+                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+                  <p>1406</p>
+                </div>
+              </div>
+            </div>
+          <div class="section-right mt-3">
+            <h2>Tarjetas</h2>
+              <div class="row border rounded mb-4">
+                <div class="field col-sm-12 col-m-5 col-lg-5 pt-2">
+                  <p>Banco</p>
+                </div>
+                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+                  <p>Galicia</p>
+                </div>
+                <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
+                  <p>Nombre Titular</p>
+                </div>
+                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+                <p>Leonard Bagiu</p>
+                </div>
+                <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
+                  <p>Numero de tarjeta</p>
+                </div>
+                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+                  <p>4444-4444-4444-4444</p>
                 </div>
               </div>
           </div>
-
-
         </div>
       </section>
     </main>
