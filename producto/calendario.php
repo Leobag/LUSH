@@ -62,9 +62,10 @@ function build_calendar($month, $year){
       $today = $date ==date('Y-m-d')?"today" : "";
 
       if($date < date('Y-m-d')){
-      $calendar .= '<td class="unavailable-day"> <span class="cross"> X </span> <h4>' . $currentDay . '</h4></td>';
+      $calendar .= '<td class="unavailable-day"> <span class="cross"></span> <h4>' . $currentDay . '</h4></td>';
     } else{
-      $calendar .= '<td class="available-day"> <a href="calendario.php?datefrom='.$date.'"> <h4>' . $currentDay . '</h4></a></td>';
+     $calendar .= '<td class="available-day"> <a href="productoNEW.php?datefrom='.$date.'"> <h4>' . $currentDay . '</h4></a></td>';
+
     }
 
       $currentDay++;
