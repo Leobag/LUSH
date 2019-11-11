@@ -14,6 +14,8 @@ $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/f6dd545c25.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/ABM.css">
     <title>ADMIN</title>
 </head>
 
@@ -61,6 +63,7 @@ $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
               <?php endforeach; ?>
               </table>
+                <a class="plus" href="add.php"><i class="fas fa-plus fa-2x"></i></a>
             </div>
           </div>
     </main>
