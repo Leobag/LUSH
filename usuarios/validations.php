@@ -82,7 +82,7 @@ if($user != false){
 
         $temp = $_FILES["profilepic"]["tmp_name"];
 
-        $position = dirname(__FILE__) . "\profilepics";
+        $position = dirname(__FILE__) . "/profilepics";
 
         $finalpos = $position ."/". $profilepic . "." . $ext;
 

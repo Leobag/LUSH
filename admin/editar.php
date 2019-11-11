@@ -1,25 +1,13 @@
 <?php
 session_start();
 if(isset($_GET["id"])){
-  $_SESSION["id"]=$_GET["id"];
+  $_SESSION["id_editar"]=$_GET["id"];
 }
-if(isset($_SESSION["id"])){
-  $id=$_SESSION["id"];
+if(isset($_SESSION["id_editar"])){
+  $id=$_SESSION["id_editar"];
 
 
-try {
-
-$dsn = 'mysql:host=127.0.0.1;dbname=lush_db;port=3306';
-$db_user = 'root';
-$db_pass = 'root';
-$opt = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-}
-
-catch (\Exception $e) {
-?> <p>Hubo algun error, por favor vuelve mas tarde.</p> <?php
-}
-
-$db = new PDO($dsn, $db_user, $db_pass, $opt);
+include_once('../SQL/connect.php');
 
 $query_product = $db->query("SELECT * FROM products WHERE id = '$id'");
 $product = $query_product->fetch(PDO::FETCH_ASSOC);
