@@ -82,7 +82,7 @@ if($user != false){
 
         $temp = $_FILES["profilepic"]["tmp_name"];
 
-        $position = dirname(__FILE__) . "\profilepics";
+        $position = dirname(__FILE__) . "/profilepics";
 
         $finalpos = $position ."/". $profilepic . "." . $ext;
 
@@ -98,7 +98,7 @@ $register = $db->prepare("INSERT INTO users VALUES (:id, :name, :surname, :email
     $register->bindValue(':surname', $apellido, PDO::PARAM_STR);
     $register->bindValue(':email', $email, PDO::PARAM_STR);
     $register->bindValue(':pass', $hash, PDO::PARAM_STR);
-    $register->bindValue(':photo_name', $profilepic);
+    $register->bindValue(':photo_name', "$profilepic.$ext");
 
     $register->execute();
 

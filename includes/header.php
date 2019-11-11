@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+
 $estilo= "font-family: 'Raleway', sans-serif;
 font-weight: 600;
 font-style: normal;

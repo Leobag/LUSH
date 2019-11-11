@@ -1,20 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost", "lush", "", "LUSH_db");
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT * FROM users where id = 2";
-$result = mysqli_query($conn, $sql)or die(mysqli_error($conn));
-$user = mysqli_fetch_assoc($result);
-
-
-
-
-
-
+include("../sql/connect.php");
 
 
  ?>
@@ -30,10 +16,32 @@ $user = mysqli_fetch_assoc($result);
     <title>Perfil de Usuario - LUSH</title>
   </head>
   <body>
-    <?php include_once("../includes/header.php"); ?>
+    <?php include_once("../includes/header.php");
+
+    if(isset($_COOKIE["autologin"])){
+      session_destroy();
+      $cookie_array=json_decode($_COOKIE["autologin"], true);
+      $nombre = $cookie_array["nombre"];
+      $email = $cookie_array["email"];
+      $apellido = $cookie_array["apellido"];
+    }
+    elseif(count($_SESSION) != 0){
+      $nombre = $_SESSION['nombre'];
+      $apellido = $_SESSION['apellido'];
+      $email = $_SESSION['email'];
+    }else{
+      header('Location: ../home/index.php');
+    };
+
+    $query = $db->prepare("SELECT photo_name FROM users WHERE (email = :email)");
+    $query->bindValue(':email', $email, PDO::PARAM_STR);
+    $query->execute();
+    $photo_name = $query->fetch(PDO::FETCH_ASSOC);
+
+     ?>
     <main id="main" class="">
       <div class="page-title row pt-5">
-        <div class="title col-12 text-center pt-3 mb-4">
+        <div class="title col-12 text-center pt-5 mb-4">
           <h1>Mi Cuenta</h1>
           <div class="feature_divider">
           </div>
@@ -42,7 +50,7 @@ $user = mysqli_fetch_assoc($result);
     </div>
     <section id="section-left"class="row">
       <div id= "profile-pic" class="col-12 col-md-4 col-lg-4 text-center">
-        <img class="align-self-center col-10" src="img/leo.jpg" alt="Vacio">
+        <img class="align-self-center col-10" src="../usuarios/profilepics/<?=$photo_name["photo_name"]?>" alt="Vacio">
       </div>
       <div class="section-right col-12 col-md-6 col-md-6 rounded pr-5">
         <h2>Datos personales</h2>
@@ -51,19 +59,19 @@ $user = mysqli_fetch_assoc($result);
               <p>Nombre</p>
             </div>
             <div class="value col-sm-12 col-m-7 col-lg-7 pt-2">
-              <p><?php echo $user["name"] ?></p>
+              <p><?=$nombre?></p>
             </div>
             <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
               <p>Apellido</p>
             </div>
             <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
-              <p><?php echo $user["surname"] ?></p>
+                <p><?=$apellido?></p>
             </div>
             <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
               <p>email</p>
             </div>
             <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
-              <p><?php echo $user["email"] ?></p>
+              <p><?=$email?></p>
             </div>
           </div>
           <div class="section-right mt-3">
