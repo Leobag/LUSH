@@ -5,8 +5,14 @@ include("loginValidation.php");
 if(isset($_POST["forgotpw"])){
 
   if(filter_var($_POST["email_fp"], FILTER_VALIDATE_EMAIL) == true){
-    $json=file_get_contents("../register/usuarios.json");
-    $usuarios=json_decode($json,true);
+
+    include_once('../SQL/connect.php');
+
+    $email = $_POST["email_fp"];
+
+    $query = $db->query("SELECT * FROM users WHERE (email = '$email')");
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
 
     function randomPassword() {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -23,21 +29,20 @@ if(isset($_POST["forgotpw"])){
     $subject = "Resetear email";
     $body = "Hola Pato! Aca te mandamos el codigo para poder resetear tu correo \r\n \r\n $passtemp \r\n Espero que tenga un buen día, \r\n LUSH";
 
-    if(count($usuarios) != 0) {
-    foreach($usuarios as $id => $usuario){
-      if($usuario["email"] == $_POST["email_fp"]){
-        $existe = $usuario;
-        $existe["password"] = $passtemp;
+    if($user != false) {
+      if($user["email"] == $_POST["email_fp"]){
+
+        $changepw = $db->prepare("UPDATE users SET pass=:pass WHERE email='$email'");
+        $changepw->bindValue(':pass', $passtemp, PDO::PARAM_STR);
+        $changepw->execute();
 
 
-        unset($usuarios[$id]);
-        array_push($usuarios, $existe);
-        $newjson = json_encode($usuarios);
 
-        mail($_POST["email_fp"], $subject, $body);
+        mail($email, $subject, $body);
 
-      } else{continue;}
-    }
+        header('../home/index.php');
+
+      } else{header("Location: forgotpw.php?email=false");}
   } else{header("Location: forgotpw.php?email=false");}
 
 

@@ -14,9 +14,10 @@ $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ADMIN</title>
+</head>
 
-
-
+<body>
 
     <main class="container-fluid">
           <div class="row">
@@ -41,9 +42,6 @@ $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
 
                   <tr>
 
-
-
-
                   <?php foreach ($producto as $key => $value): ?>
                     <td class="">
 
@@ -56,7 +54,7 @@ $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
 
                 <td>  <a href="editar.php?id=<?=$id?>">Editar</a></td>
 
-                <td><a href="#">Eliminar</a></td>
+                <td><a href="delete.php?id=<?=$id?>">Eliminar</a></td>
 
 
 

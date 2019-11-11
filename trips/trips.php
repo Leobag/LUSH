@@ -1,5 +1,16 @@
 
-<?php include("includes.php"); ?>
+<?php include("includes.php");
+/*
+include_once('../SQL/connect.php');
+
+$query_all = $db->query("SELECT * FROM products
+INNER JOIN images_product ON products.id = images_product.id_product
+");
+$products = $query_all->fetchAll(PDO::FETCH_ASSOC);
+
+var_dump($products); exit(); */
+
+?>
 
 <html lang="en" dir="ltr">
   <head>
