@@ -3,9 +3,8 @@
 session_start();
 
 $displayAdmin = "display:none";
-
 $display=null;
-if(isset($_COOKIE["autologin"]) || count($_SESSION) != 0){
+if(isset($_COOKIE["autologin"]) || isset($_SESSION["user"])){
   $display = "display:none";
 }
 
@@ -13,16 +12,22 @@ if(isset($_COOKIE["autologin"])){
   $cookie_array=json_decode($_COOKIE["autologin"], true);
   $nombrecookie = $cookie_array["nombre"];
   $emailcookie = $cookie_array["email"];
-  $passwordcookie = $cookie_array["password"];
   if($cookie_array["isadmin"]){
     $displayAdmin = "";
   }
 }
-if(count($_SESSION) != 0){
-  if($_SESSION["isadmin"]){
+elseif(isset($_SESSION["user"])){
+  $session = $_SESSION["user"];
+
+  $name = $session["nombre"];
+  $surname = $session["apellido"];
+  $email = $session["email"];
+
+  if($session["isadmin"]){
     $displayAdmin = "";
   }
 }
+
 
 
  ?>
@@ -61,11 +66,11 @@ if(count($_SESSION) != 0){
         </div>
       <?php endif;
 
-      if(count($_SESSION) != 0 && !isset($_COOKIE["autologin"])) : ?>
+      if(isset($_SESSION["user"]) && !isset($_COOKIE["autologin"])) : ?>
 
         <div id="dropdown-big" class="dropdown">
               <a class="btn dropdown-toggle styledropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Bienvenido <?=$_SESSION["nombre"]; ?>
+                Bienvenido <?=$name?>
               </a>
 
               <div class="dropdown-menu" style="background-color: rgba(108, 108, 106, 0.5);" aria-labelledby="dropdownMenuLink">
@@ -87,7 +92,7 @@ if(count($_SESSION) != 0){
     </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-        <?php if(isset($_COOKIE["autologin"]) || count($_SESSION) != 0){?>
+        <?php if(isset($_COOKIE["autologin"]) || isset($_SESSION["user"])){?>
             <a class="dropdown-item" href="../perfil/perfil.php">Perfil</a>
             <?php } ?>
         <a class="dropdown-item styledropdown" href="../trips/trips.php">Destinos</a>
@@ -96,7 +101,7 @@ if(count($_SESSION) != 0){
         <a class="dropdown-item" href="../carrito/carrito.php">Mi carrito</a>
         <a style="<?=$displayAdmin?>"class="dropdown-item styledropdown" href="../admin/ABM.php">Editar viajes</a>
         <a class="dropdown-item" href="../preguntasfrecuentes/PreguntasFrecuentes.php">Nosotros/FAQ</a>
-        <?php if(isset($_COOKIE["autologin"]) || count($_SESSION) != 0):?>
+        <?php if(isset($_COOKIE["autologin"]) || isset($_SESSION["user"])):?>
             <a style=""class="dropdown-item" href="../logout/logout.php"> Cerrar Sesion </a>
           <?php endif; ?>
       </div>
