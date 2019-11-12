@@ -19,7 +19,8 @@ if($user['email'] == $email){
       $usercookie = [
         "nombre" => $user["name"],
         "email" => $user["surname"],
-        "password" => $user["pass"]
+        "password" => $user["pass"],
+        "isadmin" => $user["isadmin"]
       ];
       $jsoncookie = json_encode($usercookie);
 
@@ -36,6 +37,7 @@ if($user['email'] == $email){
     $_SESSION["nombre"] = $user["name"];
     $_SESSION["apellido"] = $user["surname"];
     $_SESSION["email"] = $user["email"];
+    $_SESSION["isadmin"] = $user["isadmin"];
 
     header("Location: ../home/index.php?login=success");
     }

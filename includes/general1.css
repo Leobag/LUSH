@@ -87,6 +87,19 @@
   text-decoration: none;
 }
 
+.styledropdown{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-rendering: optimizeLegibility;
+  text-decoration: none;
+  text-shadow: rgba(0,0,0,.01) 0 0 0.5px;
+}
+
 
 .footer-social ul{
   padding:0px;

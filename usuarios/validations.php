@@ -91,7 +91,7 @@ if($user != false){
     }
 
 
-$register = $db->prepare("INSERT INTO users VALUES (:id, :name, :surname, :email, :pass, :photo_name)");
+$register = $db->prepare("INSERT INTO users(id, name, surname, email, pass, photo_name) VALUES (:id, :name, :surname, :email, :pass, :photo_name)");
 
     $register->bindValue(':id', null);
     $register->bindValue(':name', $nombre, PDO::PARAM_STR);
