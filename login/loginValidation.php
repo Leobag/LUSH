@@ -34,10 +34,12 @@ if($user['email'] == $email){
 
     else{
     session_start();
-    $_SESSION["nombre"] = $user["name"];
-    $_SESSION["apellido"] = $user["surname"];
-    $_SESSION["email"] = $user["email"];
-    $_SESSION["isadmin"] = $user["isadmin"];
+    $_SESSION["user"] = [
+      "nombre" => $user["name"],
+      "apellido" => $user["surname"],
+      "email" => $user["email"],
+      "isadmin" => $user["isadmin"]
+    ];
 
     header("Location: ../home/index.php?login=success");
     }

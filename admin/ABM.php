@@ -2,7 +2,7 @@
 
 include_once('../SQL/connect.php');
 
-$query_product = $db->query('SELECT * FROM products');
+$query_product = $db->query("SELECT * FROM products WHERE (destination != 'null')");
 $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
 
  ?>
@@ -23,32 +23,13 @@ $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
 <body>
   <?php include_once('../includes/header.php');
 
-if (isset($_COOKIE["autologin"]) || count($_SESSION) != 0) {
-  if (isset($_COOKIE["autologin"])) {
-      $cookie_array=json_decode($_COOKIE["autologin"], true);
-      if($cookie_array["isadmin"]){
-        /* Continues to code*/
-      }
-  }
-  elseif (count($_SESSION) != 0) {
-    if($_SESSION['isadmin']){
-      /* Continues to code*/
-    }
-  }
-  else {
-    header('Location: ../home/index.php');
-    exit();
-  }
-} else{
-  header('Location: ../home/index.php');
-  exit();
-}
+  include_once('adminvalidation.php');
 
   ?>
 
-    <main class="container-fluid pt-5">
+    <main id="main" class="container-fluid">
           <div class="row pt-5">
-            <div class="col-12 pt-3">
+            <div class="col-12 pt-5">
               <table style="width:100%" border="1">
 
                 <tr>
@@ -79,9 +60,9 @@ if (isset($_COOKIE["autologin"]) || count($_SESSION) != 0) {
                   $id = $producto['id']?>
 
 
-                <td>  <a href="editar.php?id=<?=$id?>">Editar</a></td>
+                <td>  <a href="editar.php?id=<?=$id?>"><i class="far fa-edit"></i></a></td>
 
-                <td><a href="delete.php?id=<?=$id?>">Eliminar</a></td>
+                <td><a href="delete.php?id=<?=$id?>"><i class="far fa-trash-alt"></i></a></td>
 
 
 
