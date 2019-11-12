@@ -15,15 +15,40 @@ $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/f6dd545c25.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../includes/general1.css">
     <link rel="stylesheet" href="css/ABM.css">
     <title>ADMIN</title>
 </head>
 
 <body>
+  <?php include_once('../includes/header.php');
 
-    <main class="container-fluid">
-          <div class="row">
-            <div class="col-12">
+if (isset($_COOKIE["autologin"]) || count($_SESSION) != 0) {
+  if (isset($_COOKIE["autologin"])) {
+      $cookie_array=json_decode($_COOKIE["autologin"], true);
+      if($cookie_array["isadmin"]){
+        /* Continues to code*/
+      }
+  }
+  elseif (count($_SESSION) != 0) {
+    if($_SESSION['isadmin']){
+      /* Continues to code*/
+    }
+  }
+  else {
+    header('Location: ../home/index.php');
+    exit();
+  }
+} else{
+  header('Location: ../home/index.php');
+  exit();
+}
+
+  ?>
+
+    <main class="container-fluid pt-5">
+          <div class="row pt-5">
+            <div class="col-12 pt-3">
               <table style="width:100%" border="1">
 
                 <tr>
@@ -66,9 +91,12 @@ $products = $query_product->fetchAll(PDO::FETCH_ASSOC);
                 <a class="plus" href="add.php"><i class="fas fa-plus fa-2x"></i></a>
             </div>
           </div>
+
+
+
     </main>
 
-
+          <?php include_once('../includes/footer.php'); ?>
 
 
 
