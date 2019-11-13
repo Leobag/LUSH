@@ -1,10 +1,14 @@
 body{
   height: 100%;
 }
+
+#main{
+  min-height: 650px;
+}
+
 #main img{
   object-fit: cover;
 }
 #main a{
   color: black;
-
 }
