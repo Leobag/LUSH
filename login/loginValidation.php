@@ -18,7 +18,8 @@ if($user['email'] == $email){
       $cookie_name = "autologin";
       $usercookie = [
         "nombre" => $user["name"],
-        "email" => $user["surname"],
+        "apellido" => $user["surname"],
+        "email" => $user["email"],
         "password" => $user["pass"],
         "isadmin" => $user["isadmin"]
       ];

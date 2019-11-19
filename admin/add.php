@@ -1,8 +1,10 @@
 <?php
-
-
 include_once('../SQL/connect.php');
 
+if(isset($_POST['revert'])){
+  header('Location: ABM.php');
+  exit();
+}
 
  ?>
 
@@ -15,11 +17,12 @@ include_once('../SQL/connect.php');
   </head>
   <body>
     <?php include_once('../includes/header.php');
-      include_once('adminvalidation.php');?>
-    <main class="container">
+      include_once('adminvalidation.php');
+      ?>
+    <main class="container pt-4">
 
 
-<h1>Agregar producto</h1>
+<h1 class="pt-5">Agregar producto</h1>
 <h3>En esta pagina podes cambias agregar un producto nuevo al base de datos</h3>
 
 </br>
@@ -50,7 +53,8 @@ include_once('../SQL/connect.php');
     <label for="Stock">Lugares vacantes</label>
     <input type="text" class="form-control" name="stock" id="Stock" value="" rows="1"></input>
   </div>
-  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" name="submit" class="btn btn-primary col-3">Submit</button>
+  <button type="submit" name="revert" class="btn btn-secondary col-3">Volver</button>
 </form>
 
 <?php
@@ -82,8 +86,6 @@ try {
   echo "<p>Hubo algun error! Por favor intente de nuevo.</p>";
   exit();
 }
-
-
 
 header('Location:ABM.php');
 }

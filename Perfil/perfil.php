@@ -2,43 +2,76 @@
 
 include("../sql/connect.php");
 
-
  ?>
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="CSS/estiloperfil.css">
+    <link rel="stylesheet" href="CSS/estiloperfill.css">
     <title>Perfil de Usuario - LUSH</title>
   </head>
   <body>
     <?php include_once("../includes/header.php");
 
-    if(isset($_COOKIE["autologin"])){
-      session_destroy();
-      $cookie_array=json_decode($_COOKIE["autologin"], true);
-      $nombre = $cookie_array["nombre"];
-      $email = $cookie_array["email"];
-      $apellido = $cookie_array["apellido"];
-    }
-    elseif(count($_SESSION) != 0){
-      $nombre = $_SESSION['nombre'];
-      $apellido = $_SESSION['apellido'];
-      $email = $_SESSION['email'];
-    }else{
-      header('Location: ../home/index.php');
-    };
+
 
     $query = $db->prepare("SELECT photo_name FROM users WHERE (email = :email)");
     $query->bindValue(':email', $email, PDO::PARAM_STR);
     $query->execute();
-    $photo_name = $query->fetch(PDO::FETCH_ASSOC);
+    $user = $query->fetch(PDO::FETCH_ASSOC);
 
-     ?>
+
+    $qdir = $db->query("SELECT *
+       FROM direccion
+       INNER JOIN users
+       ON users.id = direccion.user_id
+       WHERE users.email = '$email'");
+     $direccion = $qdir->fetch(PDO::FETCH_ASSOC);
+
+     $qcard = $db->query("SELECT *
+        FROM card_details
+        INNER JOIN users
+        ON users.id = card_details.user_id
+        WHERE users.email = '$email'");
+      $card = $qcard->fetch(PDO::FETCH_ASSOC);
+
+      if($card){
+        $card_number = $card["card_number"];
+        $bank = $card["bank"];
+        $owner = $card["card_nameowner"];
+      } else{
+        $card_number = "No definida";
+        $bank = "No definida";
+        $owner = "No definida";
+      }
+
+
+     if($direccion){
+       $street = $direccion["street"];
+       $apartment = $direccion["apartment"];
+       $postcode = $direccion["postal_code"];
+     } else{
+       $street = "No definida";
+       $apartment = "No definida";
+       $postcode = "No definida";
+     }
+
+    include_once('subirFoto.php');
+    include_once("validarUsuario.php");
+    include_once('cambiarDatos.php');
+
+    function photoname($user){
+      if(!$user["photo_name"]){
+        echo "empty.png";
+      }
+      else{
+        echo $user["photo_name"];
+      }
+    }   ?>
     <main id="main" class="">
       <div class="page-title row pt-5">
         <div class="title col-12 text-center pt-5 mb-4">
@@ -48,18 +81,30 @@ include("../sql/connect.php");
         </div>
       </div>
     </div>
-    <section id="section-left"class="row">
-      <div id= "profile-pic" class="col-12 col-md-4 col-lg-4 text-center">
-        <img class="align-self-center col-10" src="../usuarios/profilepics/<?=$photo_name["photo_name"]?>" alt="Vacio">
+    <form  id="form" action="perfil.php" method="post" class="mb-0 d-flex" enctype="multipart/form-data">
+
+
+    <section id="section-left"class="row d-flex">
+      <div id= "profile-pic" class="col-12 col-md-4 col-lg-4 justify-content-center m-0">
+        <img class="align-self-center col-10" src="../usuarios/profilepics/<?=photoname($user)?>" alt="Profile">
+
+        <div id="changephoto" class="flex-md-column col-6">
+            <label for="profpic">Cambiar foto de perfil</label>
+            <input type="file" name="profpic" id="profpic">
+            <button class="btn btn-primary" type="submit" name="submitprofile">Subir foto</button>
+        </div>
+
       </div>
       <div class="section-right col-12 col-md-6 col-md-6 rounded pr-5">
         <h2>Datos personales</h2>
+
+
           <div class="row border rounded">
-            <div class="field col-sm-12 col-m-5 col-lg-5 pt-2">
+            <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
               <p>Nombre</p>
             </div>
-            <div class="value col-sm-12 col-m-7 col-lg-7 pt-2">
-              <p><?=$nombre?></p>
+            <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
+                <p><?=$nombre?></p>
             </div>
             <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
               <p>Apellido</p>
@@ -74,54 +119,69 @@ include("../sql/connect.php");
               <p><?=$email?></p>
             </div>
           </div>
+
+
           <div class="section-right mt-3">
             <h2>Direccion</h2>
               <div class="row border rounded">
-                <div class="field col-sm-12 col-m-5 col-lg-5 pt-2">
-                  <p>Calle</p>
-                </div>
-                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
-                  <p>Pergamino 325</p>
-                </div>
-                <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
-                  <p>Piso/Depto</p>
-                </div>
-                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
-                  <p>7B</p>
-                </div>
-                <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
-                  <p>Codigo Postal</p>
-                </div>
-                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
-                  <p>1406</p>
-                </div>
+
+
+
+
+                     <div class="field col-sm-12 col-m-5 col-lg-5 pt-2">
+                       <p>Calle</p>
+                     </div>
+                     <div class="form-group value col-sm-12 col-m-7 col-lg-7 pt-2">
+                         <input type="text" class="form-control transparent" name="calle" id="calle" value="<?=$street?>" rows="1"></input>
+                     </div>
+
+                    <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
+                      <p>Piso/Depto</p>
+                    </div>
+                    <div class="form-group value col-sm-12 col-m-7 col-lg-7 pt-2">
+                        <input type="text" class="form-control transparent" name="apartment" id="apartment" value="<?=$apartment?>" rows="1"></input>
+                    </div>
+                    <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
+                      <p>Codigo Postal</p>
+                    </div>
+                    <div class="form-group value col-sm-12 col-m-7 col-lg-7 pt-2">
+                        <input type="text" class="form-control transparent" name="postcode" id="postcode" value="<?=$postcode?>" rows="1"></input>
+                    </div>
+
               </div>
             </div>
+
+
           <div class="section-right mt-3">
             <h2>Tarjetas</h2>
+
               <div class="row border rounded mb-4">
                 <div class="field col-sm-12 col-m-5 col-lg-5 pt-2">
                   <p>Banco</p>
                 </div>
-                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
-                  <p>Galicia</p>
+                <div class="form-group value col-sm-12 col-m-7 col-lg-7 pt-2">
+                    <input type="text" class="form-control transparent" name="bank" id="bank" value="<?=$bank?>" rows="1"></input>
                 </div>
                 <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
                   <p>Nombre Titular</p>
                 </div>
-                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
-                <p>Leonard Bagiu</p>
+                <div class="form-group value col-sm-12 col-m-7 col-lg-7 pt-2">
+                    <input type="text" class="form-control transparent" name="owner" id="owner" value="<?=$owner?>" rows="1"></input>
                 </div>
                 <div class="field col-sm-12 col-m-5 col-lg-5 border-top pt-2">
                   <p>Numero de tarjeta</p>
                 </div>
-                <div class="value col-sm-12 col-m-7 col-lg-7 border-top pt-2">
-                  <p>4444-4444-4444-4444</p>
+                <div class="form-group value col-sm-12 col-m-7 col-lg-7 pt-2">
+                    <input type="text" class="form-control transparent" name="card_number" id="card_number" value="<?=$card_number?>" rows="1"></input>
                 </div>
               </div>
+              <button type="submit" name="submit-datos" class="btn btn-primary mb-4">Actualizar datos</button>
           </div>
+
+
         </div>
       </section>
+      </form>
     </main>
 
 

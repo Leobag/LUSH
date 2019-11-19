@@ -1,6 +1,9 @@
 #main{
   background-image: url("../img/capadocia-sunset.jpg");
   background-size: cover;
+  background-attachment: center center;
+  background-attachment: fixed;
+  min-height: 700px;
 }
 
 #main .page-title{
@@ -13,6 +16,16 @@ text-align: center
   text-transform: uppercase;
   font-weight: bold;
 }
+
+#main .form-group{
+  margin-bottom: 0px;
+  padding-top: 0px;
+}
+#main .transparent{
+  background-color:rgba(0,0,0,0) !important;
+  border:none !important;
+}
+
 
 #main .feature_divider {
     border: solid 2px;
@@ -28,13 +41,14 @@ text-align: center
 }
 
 .section-right .field, .value{
-background: rgba(255,255,255, 0.5);
+background: rgba(255,255,255, 0.8);
 }
 #main h2{
   font-family: 'Raleway', monospace;
   font-size: 20px;
   text-transform: uppercase;
 }
+
 
 #main .field p{
   font-family: 'Raleway', monospace;
