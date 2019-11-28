@@ -49,6 +49,14 @@ background: rgba(255,255,255, 0.8);
   text-transform: uppercase;
 }
 
+#main #changephoto label{
+  font-family: 'Nanum Gothic', monospace;
+  font-size: 15px;
+  font-weight: bolder;
+  color: white;
+  text-transform: uppercase;
+}
+
 
 #main .field p{
   font-family: 'Raleway', monospace;
@@ -62,6 +70,16 @@ background: rgba(255,255,255, 0.8);
   font-size: 15px;
   font-weight: bolder;
 }
+
+.btn-primary{
+  background-color:#CFB53B;
+  font-family: Nanum Gothic, monospace;
+  font-size: 13px;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid white;
 
 @media only screen and (max-width: 600px) {
 
