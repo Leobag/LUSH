@@ -29,13 +29,19 @@
 .form .contact-submit{
   background-color:#CFB53B;
   font-family: Nanum Gothic, monospace;
-  font-size: 15px;
+  font-size: 13px;
   color: white;
   text-transform: uppercase;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid white;
   width: 5rem;
+}
+
+.form .contact-submit:hover{
+  background-color: white;
+  color: #CFB53B;
+  border-color: #CFB53B;
 }
 
 .map{

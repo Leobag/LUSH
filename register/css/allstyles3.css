@@ -44,6 +44,12 @@ section {
   border: 1px solid white;
 }
 
+#submitbottom:hover{
+  background-color: white;
+  color: #CFB53B;
+  border-color: #CFB53B;
+}
+
 .error{
   color: red;
   font-weight: 600;

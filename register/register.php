@@ -12,7 +12,7 @@ include_once("../usuarios/validations.php");
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="css/allstyles.css">
+    <link rel="stylesheet" href="css/allstyles3.css">
     <title>LUSH - Register</title>
   </head>
   <body>
