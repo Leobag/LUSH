@@ -13,9 +13,9 @@
 
     <?php include("../includes/header.php"); ?>
 
-    <section id="main" class="container-fluid">
+    <section id="main" class="container">
       <div class="row">
-        <div class="col-12 text-center pt-5 mt-3">
+        <div class="col-12 text-center pt-5 mt-5">
           <h1>nuestra compania</h1>
           </div>
           <div class="feature_divider">

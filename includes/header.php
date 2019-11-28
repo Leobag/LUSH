@@ -51,6 +51,7 @@ elseif(isset($_SESSION["user"])){
       <ul class="pl-0 mt-3 mb-0 pb-0">
         <li style="<?=$display?>" ><a href="../login/login.php">Log in</a></li>
 
+
         <?php  if(isset($_COOKIE["autologin"])): ?>
 
         <div id="dropdown-big" class="dropdown">
@@ -84,6 +85,13 @@ elseif(isset($_SESSION["user"])){
       <?php endif;?>
 
         <li><a style="<?=$display?>"href="../carrito/carrito.php"><i class="fas fa-shopping-cart"></i></a></li>
+        <?php
+          if(isset($_POST)){
+            echo "<span id=\"cart_count\"class=\"text-warning bg-light\"></span>";
+         } else{
+          echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
+        }?>
+
       </ul>
     </div>
   </nav>
