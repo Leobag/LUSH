@@ -18,7 +18,92 @@ if(isset($_POST['revert'])){
   <body>
     <?php include_once('../includes/header.php');
       include_once('adminvalidation.php');
+
+
+      if(isset($_POST["submit"])){
+      $destination = $_POST["destination"];
+      $description = $_POST["description"];
+      $price_float = $_POST["price"];
+      $stay_length = $_POST["stay"];
+      $stock = $_POST["stock"];
+
+      function slugify($string){
+        return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $string), '-'));
+    }
+
+      try {
+        $update = $db->prepare("INSERT INTO products(id, destination, description, price, stay_length, stock) VALUES (:id, :destination, :description, :price, :stay_length, :stock)");
+
+
+        $update->bindValue(':id', null, PDO::PARAM_INT);
+        $update->bindValue(':destination', "$destination", PDO::PARAM_STR);
+        $update->bindValue(':description', "$description", PDO::PARAM_STR);
+        $update->bindValue(':price', "$price_float", PDO::PARAM_INT);
+        $update->bindValue(':stay_length', "$stay_length", PDO::PARAM_INT);
+        $update->bindValue(':stock', "$stock", PDO::PARAM_INT);
+        $update->execute();
+
+      } catch (\Exception $e) {
+        echo $e;
+      /*  echo "<p>Hubo algun error! Por favor intente de nuevo.</p>"; */
+        exit();
+      }
+
+
+          if(isset($_FILES["photos"])){
+
+            $total = count($_FILES['photos']['name']);
+
+            for ($i=0; $i < $total ; $i++):
+
+            $file = $_FILES["photos"];
+
+              if($file["error"][$i] === UPLOAD_ERR_OK){
+              $filename = $file["name"][$i];
+              $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+              if($ext != "jpg" && $ext != "jpeg" && $ext != "png"){
+                header("Location: ../register/register.php?register=archivo&nombre=$nombre&apellido=$apellido&email=$email");
+                exit();
+              }
+              $profilepic = (slugify($destination) . ($i+1));
+
+              $temp = $_FILES["photos"]["tmp_name"][$i];
+
+              $position =  dirname(__FILE__, 2) . "/trips/img";
+
+              $finalpos = $position ."/". $profilepic . "." . $ext;
+
+              move_uploaded_file($temp, $finalpos);
+
+              $sqlname = $profilepic .".". $ext;
+
+              try {
+                $query = $db->query("SELECT * FROM products WHERE destination = '$destination'");
+                $product = $query->fetch(PDO::FETCH_ASSOC);
+
+                $upphoto = $db->prepare("INSERT INTO images_product VALUES (:id, :name, :id_product)");
+
+                $upphoto->bindValue(':id', null);
+                $upphoto->bindValue(':name', $sqlname, PDO::PARAM_STR);
+                $upphoto->bindValue(':id_product', $product["id"], PDO::PARAM_INT);
+                $upphoto->execute();
+
+              } catch (\Exception $e) {
+                echo $e;
+              }
+
+
+              }
+            endfor;
+          }
+
+
+
+      header('Location:ABM.php');
+      }
       ?>
+
     <main class="container pt-4">
 
 
@@ -30,7 +115,7 @@ if(isset($_POST['revert'])){
   <div class="col-8">
 
 
-<form method="post" action="add.php">
+<form method="post" action="add.php" enctype="multipart/form-data">
 
 
   <div class="form-group">
@@ -53,43 +138,15 @@ if(isset($_POST['revert'])){
     <label for="Stock">Lugares vacantes</label>
     <input type="text" class="form-control" name="stock" id="Stock" value="" rows="1"></input>
   </div>
+  <div class="form-group">
+    <label for="photos">Fotos del destino</label>
+    <input type="file" multiple="multiple" class="form-control" name="photos[]" id="photos" value=""></input>
+  </div>
   <button type="submit" name="submit" class="btn btn-primary col-3">Submit</button>
   <button type="submit" name="revert" class="btn btn-secondary col-3">Volver</button>
 </form>
 
-<?php
 
-if(isset($_POST["submit"])){
-$destination = $_POST["destination"];
-$description = $_POST["description"];
-$price_float = $_POST["price"];
-$stay_length = $_POST["stay"];
-$stock = $_POST["stock"];
-
-  /*if($price_float == int){
-$price_str = strval($price_float);
-}*/
-
-try {
-  $update = $db->prepare("INSERT INTO products(id, destination, description, price, stay_length, stock) VALUES (:id, :destination, :description, :price, :stay_length, :stock)");
-
-
-  $update->bindValue(':id', null, PDO::PARAM_INT);
-  $update->bindValue(':destination', "$destination", PDO::PARAM_STR);
-  $update->bindValue(':description', "$description", PDO::PARAM_STR);
-  $update->bindValue(':price', "$price_float", PDO::PARAM_INT);
-  $update->bindValue(':stay_length', "$stay_length", PDO::PARAM_INT);
-  $update->bindValue(':stock', "$stock", PDO::PARAM_INT);
-  $update->execute();
-
-} catch (\Exception $e) {
-  echo "<p>Hubo algun error! Por favor intente de nuevo.</p>";
-  exit();
-}
-
-header('Location:ABM.php');
-}
-?>
 
 
 </div>

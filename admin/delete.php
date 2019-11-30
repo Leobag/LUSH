@@ -29,6 +29,45 @@ elseif(isset($_SESSION["id_editar"])){
 else{
   header('Location: ABM.php');
 }
+
+
+if(isset($_POST['confirm'])){
+  $id = $_SESSION["id_editar"];
+try {
+  $local = $db->query("SELECT name FROM images_product WHERE id_product = $id");
+  $localphotos = $local->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (\Exception $e) {
+  echo "Hubo algun error!";
+}
+
+
+foreach ($localphotos as $localphoto):
+$photoname = $localphoto["name"];
+
+unlink("../trips/img/" . $photoname);
+
+endforeach;
+
+
+try {
+  $delphot = $db->prepare("DELETE FROM images_product WHERE id_product = $id");
+  $delete1 = $delphot->execute();
+  $q = $db->prepare("DELETE FROM products WHERE id='$id'");
+  $delete2 = $q->execute();
+
+} catch (\Exception $e) {
+  echo "Hubo algun error!";
+}
+
+
+
+  header('Location: ABM.php');
+
+}
+
+
+
   ?>
 <main id="mainDel" class="container pt-5">
   <div class="row d-flex pt-5">
@@ -39,18 +78,7 @@ else{
         <button type="submit" name="revert" id="no" class="btn btn-secondary col-3">No</button>
       </form>
 
-      <?php
 
-      if(isset($_POST['confirm'])){
-
-        $q = $db->prepare("DELETE FROM products WHERE id='$id'");
-        $delete = $q->execute();
-
-        header('Location: ABM.php');
-
-      }
-
-       ?>
 
 
     </div>
