@@ -51,7 +51,7 @@
 }
 
 .team .imagen{
-  max-width:200px;
-  max-height: 200px;
-  border-radius: 90px;
+  width:200px;
+  height: 200px;
+  border-radius: 50%;
 }

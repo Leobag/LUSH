@@ -1,14 +1,5 @@
 <?php
 
-if($_POST){
-  $product = $_POST["product"];
-  $price = $_POST["price"];
-  $quantity = $_POST["quantity"];
-};
-
-if(isset($_SESSION)){
-  $_SESSION[0] = $_POST["quantity"];
-}
 
  ?>
 
@@ -19,7 +10,7 @@ if(isset($_SESSION)){
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../includes/general2.css">
+    <link rel="stylesheet" href="../includes/general.css">
     <link rel="stylesheet" href="CSS/carrito2.css">
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <title>LUSH - Carrito de compras</title>

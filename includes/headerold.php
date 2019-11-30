@@ -95,12 +95,13 @@ elseif(isset($_SESSION["user"])){
     </div>
   </nav>
   <div id="dropdown-small" class="dropdown">
-
-      <div onclick="myFunction(this)" class="container1 btn btn-secondary dropdown-toggle pt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="container1"  onclick="myFunction(this)">
     <div class="bar1"></div>
     <div class="bar2"></div>
     <div class="bar3"></div>
   </div>
+    </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
         <?php if(isset($_COOKIE["autologin"]) || isset($_SESSION["user"])){?>
@@ -111,7 +112,7 @@ elseif(isset($_SESSION["user"])){
         <a style="<?=$display?>" class="dropdown-item" href="../login/login.php">Log in</a>
         <a class="dropdown-item" href="../carrito/carrito.php">Mi carrito</a>
         <a style="<?=$displayAdmin?>"class="dropdown-item styledropdown" href="../admin/ABM.php">Editar viajes</a>
-        <a class="dropdown-item" href="../FAQ/PreguntasFrecuentes.php">Nosotros/FAQ</a>
+        <a class="dropdown-item" href="../preguntasfrecuentes/PreguntasFrecuentes.php">Nosotros/FAQ</a>
         <?php if(isset($_COOKIE["autologin"]) || isset($_SESSION["user"])):?>
             <a style=""class="dropdown-item" href="../logout/logout.php"> Cerrar Sesion </a>
           <?php endif; ?>
