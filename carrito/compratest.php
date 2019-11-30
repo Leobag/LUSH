@@ -1,17 +1,12 @@
-<?php
-
-
- ?>
-
-
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../includes/general.css">
-    <link rel="stylesheet" href="CSS/carrito2.css">
+    <link rel="stylesheet" href="../includes/general1.css">
+    <link rel="stylesheet" href="CSS/test.css">
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <title>LUSH - Carrito de compras</title>
   </head>
@@ -19,34 +14,17 @@
 
     <?php include("../includes/header.php"); ?>
 
-    <main id="main" class="container-fluid">
-      <div class="row">
-        <div class="col-12 text-center mt-5 pt-5">
-          <h1>mi carrito</h1>
-          </div>
-          <div class="feature_divider">
-          </div>
-        </div>
-        <div class="row">
-          <div class="products col-12 col-m-6 col-lg-6">
-            <h2>productos</h2>
-            <div class="detalle mt-3">
-              <img src="img/fuji.jpeg" alt="">
-              <ul>
-                <li class="product-name mb-2"><?=$product?></li>
-                <li class="description">Precio:<?=$price?></li>
-                <li class="description">Cantidad:<?=$quantity?></li>
-                <li class="description">Boton Borrar</li>
-                </ul>
-            </div>
-          </div>
-            <div class="total col-12 col-m-6 col-lg-6">
-              <h2>subtotal</h2>
-              <p>TOTAL AQUI</p>
-              <button class="btn btn-primary" type="button" name="button">Confirmar Compra</button>
-            </div>
-        </div>
-      </main>
+    <main>
+      <section>
+        <form class="" action="carrito.php" method="post">
+          <img src="img/fuji.jpeg" alt="">
+          <input type="text" name="product" value="Mount Fuji">
+          <input type="text" name="quantity" value="1">
+          <input type="text" name="price" value="$2000.00">
+          <input type="submit" name="add_to_cart" class="btn btn-success" style="margin-top:5px" value="Add to Cart">
+        </form>
+      </section>
+    </main>
 
     <?php include("../includes/footer.php"); ?>
 

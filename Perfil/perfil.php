@@ -10,8 +10,8 @@ include("../sql/connect.php");
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
-    <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="CSS/estiloperfill.css">
+    <link rel="stylesheet" href="../includes/general.css">
+    <link rel="stylesheet" href="CSS/estiloperfil.css">
     <title>Perfil de Usuario - LUSH</title>
   </head>
   <body>
@@ -72,7 +72,7 @@ include("../sql/connect.php");
         echo $user["photo_name"];
       }
     }   ?>
-    <main id="main" class="">
+    <main id="main" class="container-fluid">
       <div class="page-title row pt-5">
         <div class="title col-12 text-center pt-5 mb-4">
           <h1>Mi Cuenta</h1>
@@ -85,13 +85,14 @@ include("../sql/connect.php");
 
 
     <section id="section-left"class="row d-flex">
-      <div id= "profile-pic" class="col-12 col-md-4 col-lg-4 justify-content-center m-0">
+      <div id= "profile-pic" class="col-12 col-md-4 col-lg-4 text-center m-0">
         <img class="align-self-center col-10" src="../usuarios/profilepics/<?=photoname($user)?>" alt="Profile">
 
-        <div id="changephoto" class="flex-md-column col-6">
-            <label for="profpic">Cambiar foto de perfil</label>
-            <input type="file" name="profpic" id="profpic">
-            <button class="btn btn-primary" type="submit" name="submitprofile">Subir foto</button>
+        <div id="changephoto" class="flex-md-column col-12">
+            <label for="profpic" class="mt-3" for="profpic">Click aqui para cambiar foto</label>
+            <input style="display:none"type="file" name="profpic" id="profpic">
+            <br>
+            <button class="btn btn-primary mb-3" type="submit" name="submitprofile">SUBIR FOTO</button>
         </div>
 
       </div>

@@ -4,8 +4,8 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../includes/general1.css">
-    <link rel="stylesheet" href="CSS/about.css">
+    <link rel="stylesheet" href="../includes/general.css">
+    <link rel="stylesheet" href="CSS/about1.css">
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <title>LUSH - Nosotros</title>
   </head>
@@ -13,9 +13,9 @@
 
     <?php include("../includes/header.php"); ?>
 
-    <section id="main" class="container-fluid">
+    <section id="main" class="container">
       <div class="row">
-        <div class="col-12 text-center pt-5 mt-3">
+        <div class="col-12 text-center pt-5 mt-5">
           <h1>nuestra compania</h1>
           </div>
           <div class="feature_divider">
@@ -46,26 +46,19 @@
             </article>
           </div>
           <div class="team row">
-            <div class="col-12 col-md-12 col-lg-4 text-center">
-              <img class="imagen" src="img/team.png" alt="foto">
+            <div class="col-12 col-md-12 col-lg-6 text-center">
+              <img class="imagen" src="img/pato.png" alt="foto">
               <h3>Patricio Baptista</h3>
               <div class="feature_divider_small">
               </div>
-              <p>Director de Marketing</p>
+              <p>Marketing Director</p>
             </div>
-            <div class="col-12 col-md-12 col-lg-4 text-center">
-              <img class="imagen" src="img/team.png" alt="foto">
-              <h3>Martin Sozzi</h3>
-              <div class="feature_divider_small">
-              </div>
-              <p>Director de Marketing</p>
-            </div>
-            <div class="col-12 col-md-12 col-lg-4 text-center">
-              <img class="imagen" src="img/team.png" alt="foto">
+            <div class="col-12 col-md-12 col-lg-6 text-center">
+              <img class="imagen" src="img/leo.png" alt="foto">
               <h3>Leo Bagiu</h3>
               <div class="feature_divider_small">
               </div>
-              <p>Director de Marketing</p>
+              <p>Product Manager</p>
             </div>
             <div class="feature_divider_small">
             </div>

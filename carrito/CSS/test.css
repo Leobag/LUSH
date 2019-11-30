@@ -1,0 +1,13 @@
+img{
+  height: 100px;
+  width: 100px;
+}
+
+main{
+  min-height: 600px;
+}
+
+main form{
+  padding-top: 100px;
+  padding-left: 100px;
+}
