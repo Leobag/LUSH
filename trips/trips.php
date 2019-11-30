@@ -3,14 +3,11 @@
 
 include_once('../SQL/connect.php');
 
-$query_all = $db->query("SELECT * FROM images_product
-INNER JOIN products ON products.id = images_product.id_product
+$query_all = $db->query("SELECT * FROM products
 ");
-$images = $query_all->fetchAll(PDO::FETCH_ASSOC);
+$products = $query_all->fetchAll(PDO::FETCH_ASSOC);
 
-$q = $db->query("SELECT * FROM products WHERE ")
 
-var_dump($images); exit();
 
 ?>
 
@@ -43,42 +40,52 @@ var_dump($images); exit();
 
         <div class="row embodiment w-100">
 
-          <?php foreach($trips as $number => $trip): ?>
-          <div class="col-12 col-md-5 carouselparent">
-
-        <div id="carouselhead<?=$number?>" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
+          <?php foreach($products as $amount => $product): ?>
+            <?php
+            $prodid = $product["id"];
+            $query = $db->query("SELECT * FROM images_product
+              INNER JOIN products ON products.id = images_product.id_product
+              WHERE id_product='$prodid'");
+            $photos = $query->fetchAll(PDO::FETCH_ASSOC);
+            $nophotos = null;
+            if(count($photos) == 0){
+              $nophotos = "d-none";
+            }
+            ?>
+            <div class="col-12 col-md-5 carouselparent <?=$nophotos?>">
+        <div id="carouselhead<?=$amount?>" class="carousel slide w-100" data-interval="0" data-ride="carousel"> <!-- First slideshow -->
 
 
               <ol class="carousel-indicators">
-                <?php for ($i=0; $i <count($trip["image"]); $i++):
+                <?php for ($i=0; $i < count($photos); $i++):
                 $active = "";
 
                 ?>
 
-                <li data-target="#carouselhead<?=$number?>" data-slide-to="<?=$i?>" class="<?php if($i<1){$active="active";}  echo $active; ?>"></li>
+                <li data-target="#carouselhead<?=$amount?>" data-slide-to="<?=$i?>" class="<?php if($i<1){$active="active";}  echo $active; ?>"></li>
 
               <?php  endfor; ?>
               </ol>
               <div class="carousel-inner">
 
-                <?php for ($i=0; $i < count($trip["image"]); $i++):
+                <?php for ($i=0; $i < count($photos); $i++):
                     $active="";
 
                       ?>
 
                     <div class="carousel-item <?php if($i<1){$active="active";}  echo $active; ?>">
-                      <img class="img-thumbnail rounded d-block innerphoto" src="<?=$trip["image"][$i]?>" alt="Maldives<?=$i+1?>">
+                      <img class="img-thumbnail rounded d-block innerphoto" src="img/<?=$photos[$i]["name"]?>" alt="<?=$photos["destination"] . $i+1?>">
                     </div>
 
                   <?php  endfor; ?>
 
               </div>
 
-                  <a class="carousel-control-prev" href="#carouselhead<?=$number?>" role="button" data-slide="prev">
+                  <a class="carousel-control-prev" href="#carouselhead<?=$amount?>" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
                   </a>
-                  <a class="carousel-control-next" href="#carouselhead<?=$number?>" role="button" data-slide="next">
+                  <a class="carousel-control-next" href="#carouselhead<?=$amount?>" role="button" data-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
                   </a>
@@ -86,9 +93,9 @@ var_dump($images); exit();
 
                 <div class="col-12 bottomtext py-3">
 
-                  <h2 class="photoheader"><?=$trip["destination"]?></h2>
-                    <p class=""> <?=$trip["description"]?></p>
-                    <a href="<?=$trip["url"]?>"> VER MÁS </a>
+                  <h2 class="photoheader"><?=$product["destination"]?></h2>
+                    <p class=""> <?=$product["description"]?></p>
+                    <a href="../producto/producto.php?prodid=<?=$product["id"]?>"> VER MÁS </a>
 
                 </div>
             </div>

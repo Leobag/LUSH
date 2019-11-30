@@ -16,6 +16,7 @@ include("../sql/connect.php");
   </head>
   <body>
     <?php include_once("../includes/header.php");
+    include_once("validarUsuario.php");
 
 
 
@@ -61,7 +62,6 @@ include("../sql/connect.php");
      }
 
     include_once('subirFoto.php');
-    include_once("validarUsuario.php");
     include_once('cambiarDatos.php');
 
     function photoname($user){
