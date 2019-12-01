@@ -64,6 +64,9 @@
     $_SESSION["cart"][] = $_POST["product_id"];
   }
 
+  var_dump($_SESSION["cart"]);
+
+
   ?>
     <main id="main" class="container-fluid pt-5">
       <section class="container-fluid row pt-5">
