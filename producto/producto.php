@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <?php
-
-
-include("../SQL/connect.php");
-
-$query = $db->prepare("SELECT * from products where id=21");
-$query->execute();
-$result = $query->fetch(PDO::FETCH_ASSOC);
-$destination = $result["destination"];
-$description = $result["description"];
-$price = $result["price"];
-
-if(isset($_SESSION)){
-$_SESSION["cart"] = [
-  "destination" => $destination,
-  "price" => $price,
-  "description" => $description
-];
-}
-?>
+  include("../SQL/connect.php");
+   ?>
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -31,40 +14,75 @@ $_SESSION["cart"] = [
    <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
   </head>
   <body>
-  <?php include("../includes/header.php");?>
+  <?php include("../includes/header.php");
+  if(isset($_GET["prodid"])){
+    $_SESSION["prodid"] =  $_GET["prodid"];
+    $product_id = $_SESSION["prodid"];
+  }
+  elseif(isset($_SESSION["prodid"])){
+    $product_id = $_SESSION["prodid"];
+  }
+  else{
+  header('Location: ../trips/trips.php');
+  }
+
+
+  $query = $db->prepare("SELECT * from products where id=$product_id");
+  $query->execute();
+  $result = $query->fetch(PDO::FETCH_ASSOC);
+  $destination = $result["destination"];
+  $description = $result["description"];
+  $price = $result["price"];
+
+
+  $query = $db->prepare("SELECT * from images_product where id_product=$product_id");
+  $query->execute();
+  $result = $query->fetch(PDO::FETCH_ASSOC);
+
+  $mainImage = $result;
+
+  $query = $db->prepare("SELECT * from images_product where id_product=$product_id");
+  $query->execute();
+  $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  $smallimages = $result;
+
+
+  $query = $db->prepare("SELECT * from highlights where id_product=$product_id");
+  $query->execute();
+  $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  $highlights = $result;
+
+  $query = $db->prepare("SELECT * from trip_includes where id_product=$product_id");
+  $query->execute();
+  $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  $includes = $result;
+
+  if(isset($_POST["cart"])){
+    $_SESSION["cart"][] = $_POST["product_id"];
+  }
+
+  ?>
     <main id="main" class="container-fluid pt-5">
       <section class="container-fluid row pt-5">
         <div class="photos col-12 col-md-12 col-lg-6">
           <div class="photo-big mb-3 p-3">
-            <img src="img/mal.jpg" alt="">
+            <img src="../trips/img/<?=$mainImage["name"]?>" alt="">
           </div>
           <div class="photo-small mb-3 col-12">
             <div class="row mb-3">
-              <div class="col-4">
-                <img src="img/mal.jpg" alt="">
-              </div>
-              <div class="col-4">
-                <img src="img/malfondo.jpg" alt="">
-              </div>
-              <div class="col-4">
-                <img src="img/mal.jpg" alt="">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-4">
-                <img src="img/mal.jpg" alt="">
-              </div>
-              <div class="col-4">
-                <img src="img/malfondo.jpg" alt="">
-              </div>
-              <div class="col-4">
-                <img src="img/mal.jpg" alt="">
-              </div>
+              <?php foreach ($smallimages as $image): ?>
+                <div class="col-4">
+                  <img src="../trips/img/<?=$image["name"]?>" alt="">
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
         <div class="description col-12 col-md-12 col-lg-6">
-          <form class="" action="../carrito/carrito.php" method="post">
+          <form class="" action="producto.php" method="post">
           <div class="row">
             <div class="col-12 text-center">
               <h1><?=$destination?> </h1>
@@ -78,11 +96,9 @@ $_SESSION["cart"] = [
                 </div>
                 <div class="col-8">
                   <ul>
-                    <li>This</li>
-                    <li>That</li>
-                    <li>This</li>
-                    <li>That</li>
-                    <li>This</li>
+                    <?php foreach($highlights as $highlight){?>
+                    <li><?=$highlight["description"];?></li>
+                  <?php }; ?>
                   </ul>
                 </div>
               </div>
@@ -100,20 +116,19 @@ $_SESSION["cart"] = [
                 </div>
                 <div class="col-8">
                   <ul>
-                    <li>This</li>
-                    <li>That</li>
-                    <li>This</li>
-                    <li>That</li>
-                    <li>This</li>
+                    <?php foreach($includes as $include){?>
+                    <li><?=$include["includes"];?></li>
+                  <?php }; ?>
                   </ul>
                 </div>
               </div>
               <div class="row price-submit">
                 <div class="col-5 p-3">
-                  <button class="btn btn-primary" type="submit" name="button">agregar al carrito</button>
+                  <button class="btn btn-primary" type="submit" name="cart">agregar al carrito</button>
+                  <input type="hidden" name="product_id" value="<?=$product_id?>">
                 </div>
                 <div class="p-3 col-7">
-                  <h2>precio final: <?=$_SESSION["cart"]["price"]?></h2>
+                  <h2>precio final: <?=$price?></h2>
                 </div>
               </div>
             </div>
