@@ -19,21 +19,15 @@ include("../SQL/connect.php");
 
     <?php include("../includes/header.php");
 
-  /*  $query = $db->prepare("SELECT * from products");
-    $query->execute();
-    $products = $query->fetchAll(PDO::FETCH_ASSOC);
+      if(isset($_GET["deleteid"])){
+        $key=array_search($_GET['deleteid'],$_SESSION['cart']);
+          if($key!==false){
+            unset($_SESSION["cart"][$key]);
+          }
+        $_SESSION["cart"] = array_values($_SESSION["cart"]);
+        unset($_GET["deleteid"]);
+      }
 
-
-    $query = $db->prepare("SELECT * from images_product");
-    $query->execute();
-    $images = $query->fetchAll(PDO::FETCH_ASSOC); */
-
-
-
-
-    if(isset($_SESSION["cart"])){
-
-          /*INNER JOIN images_product ON products.id = images_product.id_product */
     ?>
 
     <main id="main" class="container-fluid">
@@ -48,19 +42,20 @@ include("../SQL/connect.php");
           <div class="products col-12 col-m-6 col-lg-6">
             <h2>productos</h2>
 
-
-
             <?php
+                if(isset($_SESSION["cart"]) && count($_SESSION["cart"]) !== 0){
+
+            $total= 0;
             for ($i=0; $i < count($_SESSION["cart"]); $i++) {
             $product_id = $_SESSION["cart"][$i];
-
             $query = $db->query("SELECT *
               FROM products
               WHERE id = '$product_id'");
             $products[] = $query->fetch(PDO::FETCH_ASSOC);
-
+            $total = $total + $products[$i]["price"];
 
           }
+
 
               foreach ($products as $product){
 
@@ -71,7 +66,6 @@ include("../SQL/connect.php");
 
                 $photos = $qphoto->fetch(PDO::FETCH_ASSOC);
 
-
               ?>
 
             <div class="detalle mt-3">
@@ -81,24 +75,26 @@ include("../SQL/connect.php");
                     <li class="product-name mb-2"><?=$product["destination"]?></li>
                     <li class="description">Precio:$<?=$product["price"]?></li>
                     <li class="description">Cantidad: 1</li>
-                    <button class="btn btn-primary" type="submit" name="empty_cart">vaciar carrito</button>
+                    <a href="carrito.php?deleteid=<?=$product["id"]?>" class="btn btn-primary">eliminar producto</a>
                     </ul>
-                </form>
+
             </div>
           <?php } ?>
           </div>
             <div class="total col-12 col-m-6 col-lg-6">
               <h2>subtotal</h2>
-              <p>$<?=$product["price"]?></p>
+              <p>$<?=$total?></p>
               <button class="btn btn-primary" type="button" name="button">Confirmar Compra</button>
             </div>
               <div class="vacio">
                 <?php
               }else{?>
                   <h1>Su carrito esta vacio</h1>
+                  <a href="../trips/trips.php" class="btn btn-primary">Volver a productos</a>
               <?php }
                 ?>
               </div>
+          </form>
         </div>
       </main>
 
