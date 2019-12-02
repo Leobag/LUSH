@@ -5,33 +5,21 @@ body{
   font-family: 'Nanum Gothic';
   overflow-y: scroll;
 }
-.backgroundphoto{
-  background-image: url("../img/crwp.jpg");
-  background-size: cover;
-  width: 100%;
-  min-height: 686px;
+#main h1{
+  font-family: 'Raleway', monospace;
+  font-size: 35px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.feature_divider {
+    border: solid 2px;
+    display: block;
+    width: 100px;
+    margin: 10px auto;
+    border-color: black;
+}
 
-}
-.photodad{
-  width: auto;
-  position: relative;
 
-}
-#centertext{
-position: absolute;
-text-align: center;
-padding-top: 330px;
-}
-#centertext .title{
-  text-transform: bold;
-  font-size: 45px;
-  color: white;
-}
-#centertext .undertitle{
-  text-transform: bold;
-  font-size: 20px;
-  color: white;
-}
 
 .dad{
   min-height: 600px;

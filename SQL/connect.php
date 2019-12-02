@@ -1,7 +1,7 @@
 <?php
 try {
 
-$dsn = 'mysql:host=127.0.0.1;dbname=lush_db;port=8889';
+$dsn = 'mysql:host=127.0.0.1;dbname=lush_db;port=3306';
 $db_user = 'root';
 $db_pass = 'root';
 $opt = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];

@@ -19,26 +19,30 @@ $products = $query_all->fetchAll(PDO::FETCH_ASSOC);
     <script src="https://kit.fontawesome.com/34b9ea8fdc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../includes/general.css">
-    <link rel="stylesheet" href="css/trip.css">
+    <link rel="stylesheet" href="css/trips.css">
     <title>LUSH - Ofertas</title>
   </head>
   <body>
     <?php include("../includes/header.php"); ?>
 
-      <div class="container-fluid backgroundphoto pb-3"> <!-- Foto de fondo arriba-->
-        <div class="row photodad">
-            <div id="centertext" class="text-center col-12">
-              <h1 class="title">NUESTROS VIAJES</h1>
-              <p class="undertitle">Cada viaje necesita un primer paso</p>
-            </div>
-        </div>
-      </div>
-    <main>
+
+    <main id="main">
       <div class="container-fluid contphot pt-5">
+
+        <div class="row">
+          <div class="col-12 text-center mt-5 pt-5">
+            <h1>Nuestros Viajes</h1>
+            </div>
+            <div class="feature_divider">
+            </div>
+          </div>
 
       <section class="dad d-flex">
 
+
         <div class="row embodiment w-100">
+
+
 
           <?php foreach($products as $amount => $product): ?>
             <?php

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -30,22 +29,27 @@
           </div>
           <div class="col-12 col-md-12 col-lg-6">
             <div class="form pt-5">
-              <form class="contact-form" action="index.html" method="post">
+              <form class="contact-form" action="contacto.php" method="post">
                 <div class="row">
-                  <div class="col-sm-12 col-md-6">
+                  <div class="col-sm-12 col-md-6 form-group">
                     <label for="name">Name</label>
                     <br>
-                    <input type="text" name="name" placeholder="Name"value="">
+                    <input type="text" name="name" id="name" placeholder="Name" value="">
                   </div>
-                  <div class="col-sm-12 col-md-6">
-                    <label for="message">email</label>
+                  <div class="col-sm-12 col-md-6 form-group">
+                    <label for="email">Email</label>
                     <br>
-                    <input type="text" name="email" placeholder="email" value="">
+                    <input type="email" name="email"id="email" placeholder="Email" value="">
                   </div>
-                  <div class="col-12">
+                  <div class="col-sm-12 col-md-6 form-group">
+                    <label for="subject">Subject</label>
+                    <br>
+                    <input type="text" name="subject"id="subject" placeholder="Subject" value="">
+                  </div>
+                  <div class="col-12 form-group">
                     <label for="message">Message</label>
-                    <textarea name="message" rows="8" cols="60" placeholder="Message"></textarea>
-                    <button class="contact-submit mt-2" type="submit" name="button">Send</button>
+                    <textarea name="message" rows="8" cols="60" id="message" placeholder="Message"></textarea>
+                    <button class="contact-submit mt-2" type="submit" name="submit">Send</button>
                   </div>
                 </div>
               </form>

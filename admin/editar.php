@@ -130,6 +130,7 @@ if(isset($_FILES["photos"])){
       $upphoto->bindValue(':id_product', $product["id"], PDO::PARAM_INT);
       $upphoto->execute();
 
+
     } catch (\Exception $e) {
       echo $e;
     }
