@@ -77,12 +77,7 @@ elseif(isset($_SESSION["user"])){
 
               <div class="dropdown-menu" style="background-color: rgba(108, 108, 106, 0.5);" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item styledropdown" href="../perfil/perfil.php">Perfil</a>
-                <a class="dropdown-item" href="../carrito/carrito.php"><i class="fas fa-shopping-cart"></i></a><?php
-                  if(isset($_POST)){
-                    echo "<span id=\"cart_count\"class=\"text-warning bg-light\"></span>";
-                 } else{
-                  echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
-                }?>
+                <a class="dropdown-item" href="../carrito/carrito.php"><i class="fas fa-shopping-cart"></i></a>  
                 <a style="<?=$displayAdmin?>"class="dropdown-item styledropdown" href="../admin/ABM.php">Editar viajes</a>
                 <a class="dropdown-item styledropdown" href="../logout/logout.php"> Cerrar Sesion </a>
               </div>

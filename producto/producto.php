@@ -64,7 +64,6 @@
     $_SESSION["cart"][] = $_POST["product_id"];
   }
 
-  var_dump($_SESSION["cart"]);
 
 
   ?>
